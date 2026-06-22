@@ -1,0 +1,65 @@
+repos:
+  # ============================================================
+  # Core pre-commit hooks
+  # ============================================================
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # ============================================================
+  # Python formatting (Black)
+  # ============================================================
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3.11
+
+  # ============================================================
+  # Python linting (Ruff)
+  # ============================================================
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.8
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  # ============================================================
+  # Optional: static typing (Mypy)
+  # ============================================================
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-PyYAML
+          - types-requests
+
+  # ============================================================
+  # Custom hook: block accidental model commits
+  # ============================================================
+  - repo: local
+    hooks:
+      - id: block-model-files
+        name: "Prevent committing model artifacts"
+        entry: bash -c 'echo "$@" | grep -E "\.(joblib|bin|pt|ckpt|model)$" && { echo "❌ Model files must not be committed."; exit 1; } || exit 0'
+        language: system
+        types: [file]
+
+  # ============================================================
+  # Optional: block ambiguous words in golden set
+  # ============================================================
+  - repo: local
+    hooks:
+      - id: check-golden-ambiguity
+        name: "Ensure no ambiguous words in CRF golden set"
+        entry: python scripts/check_golden_no_ambiguity.py
+        language: python
+        files: ^tests/golden/crf_golden\.tsv$

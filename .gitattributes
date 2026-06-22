@@ -1,0 +1,51 @@
+# **.gitattributes (recommended for Zomi‑Syl v0.1.0)**
+
+```
+# ============================================================
+# Core text normalization
+# ============================================================
+* text=auto eol=lf
+
+# Force LF for all source files
+*.py      text eol=lf
+*.md      text eol=lf
+*.txt     text eol=lf
+*.json    text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.toml    text eol=lf
+*.ini     text eol=lf
+*.cfg     text eol=lf
+*.sh      text eol=lf
+*.tsv     text eol=lf
+*.csv     text eol=lf
+
+# ============================================================
+# Git LFS — large or binary files
+# ============================================================
+# CRF model artifacts
+*.joblib  filter=lfs diff=lfs merge=lfs -text
+*.pkl     filter=lfs diff=lfs merge=lfs -text
+
+# Training data (large TSVs)
+training/data/*.tsv filter=lfs diff=lfs merge=lfs -text
+
+# Golden regression snapshots (optional)
+tests/golden/*.tsv text eol=lf
+
+# ============================================================
+# Binary files — never diff
+# ============================================================
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.zip     binary
+*.whl     binary
+*.tar.gz  binary
+
+# ============================================================
+# Prevent accidental model commits
+# (the release script copies model → package temporarily)
+# ============================================================
+src/zomi_syl/models/crf/* linguist-vendored

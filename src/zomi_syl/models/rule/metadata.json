@@ -1,0 +1,10 @@
+{
+    "name": "rule",
+    "version": "1.0.0",
+    "description": "Deterministic rule-based syllabifier",
+    "dialects": [
+        "tedim",
+        "zolai_standard",
+        "myanmar_zomi"
+    ]
+}

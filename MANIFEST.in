@@ -1,0 +1,27 @@
+# Include the Python package
+recursive-include src/zomi_syl *.py
+recursive-include src/zomi_syl/models *.joblib *.json *.txt
+
+# Include documentation
+include README.md
+include LICENSE
+recursive-include docs *.md
+
+# Exclude training pipeline
+prune training
+prune scripts
+prune data
+prune notebooks
+
+# Exclude CI and GitHub workflows
+prune .github
+
+# Exclude tests from the wheel
+prune tests
+
+# Exclude temporary files
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude *.tmp
+global-exclude *.log

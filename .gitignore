@@ -1,0 +1,61 @@
+# ============================================================
+# Python cache / build
+# ============================================================
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# ============================================================
+# Virtual environments
+# ============================================================
+.venv/
+venv/
+.env/
+
+# ============================================================
+# Editor / OS files
+# ============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Logs / temp
+# ============================================================
+*.log
+tmp/
+temp/
+.cache/
+
+# ============================================================
+# Model artifacts
+# ============================================================
+# Ignore ALL model files globally...
+*.joblib
+*.json
+*.bin
+*.pt
+*.ckpt
+*.model
+
+# ...EXCEPT the packaged inference models inside src/zomi_syl/models/**
+!src/zomi_syl/models/
+!src/zomi_syl/models/**
+!src/zomi_syl/models/**/*.joblib
+!src/zomi_syl/models/**/*.json
+!src/zomi_syl/models/**/*.txt
+
+# ============================================================
+# IMPORTANT:
+# Do NOT ignore training/, scripts/, tests/, notebooks/, data/
+# These are source code and must be tracked by Git.
+# They are excluded from PyPI via MANIFEST.in, not .gitignore.
+# ============================================================

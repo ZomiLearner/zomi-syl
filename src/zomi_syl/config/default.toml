@@ -1,0 +1,9 @@
+# Default configuration for zomi-syl
+
+backend = "auto"
+profile = "tedim"
+
+[paths]
+cache_dir = "~/.cache/zomi-syl"
+models_dir = "models/"
+datasets_dir = "datasets/"
