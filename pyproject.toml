@@ -86,6 +86,7 @@ Changelog = "https://ZomiLearner.github.io/zomi-syl/changelog/"
 zomi-syl = "zomi_syl.cli:main"
 
 [tool.setuptools]
+packages = ["zomi_syl"]
 package-dir = {"" = "src"}
 include-package-data = true
 
