@@ -302,3 +302,12 @@ help:
 
 
 allhelp: help help-cli list-backends list-models help-devs
+
+
+# Change the version number in toml file and run this
+# git add . && git commit -m "Bump version from v0.1.907 to v0.1.908" && git push && git tag v0.1.908 && git push origin v0.1.908
+
+# Delete/Remove a tag and re-tag
+# git tag -d v0.1.905
+# git tag v0.1.906
+# git push -f origin v0.1.906
