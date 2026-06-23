@@ -90,11 +90,6 @@ packages = ["zomi_syl"]
 package-dir = {"" = "src"}
 include-package-data = true
 
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["zomi_syl*"]
-exclude = ["training*", "scripts*", "tests*", "notebooks*"]
-
 [tool.setuptools.package-data]
 "zomi_syl" = [
     "py.typed",
