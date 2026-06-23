@@ -43,6 +43,23 @@ jobs:
         run: |
           pip install wheel
           unzip -l dist/*.whl
+      
+      - name: Show wheel metadata
+        run: |
+          WHEEL=$(ls dist/*.whl | head -1)
+          echo "Wheel: $WHEEL"
 
+          unzip -l "$WHEEL"
+
+          METADATA_PATH=$(zipinfo -1 "$WHEEL" | grep '\.dist-info/METADATA$')
+
+          echo "METADATA file: $METADATA_PATH"
+          unzip -p "$WHEEL" "$METADATA_PATH" | head -50
+      
+      - name: Check distribution
+        run: |
+          python -m pip install --upgrade twine
+          twine check dist/*
+  
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.10.0
