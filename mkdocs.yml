@@ -1,0 +1,83 @@
+site_name: Zomi‑Syl Documentation
+site_description: "A modular, dialect‑aware Zomi syllabification library with multiple backends."
+site_author: "Zomi‑Syl Contributors"
+repo_url: "https://github.com/ZomiLearner/zomi-syl"
+repo_name: "zomi-syl"
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.action.edit
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed
+  - pymdownx.tasklist
+
+nav:
+  - Home: index.md
+
+  - User Guide:
+      - Installation: user/installation.md
+      - Quick Start: user/quick_start.md
+      - CLI Overview: Top_Level_Commands_v0.1.0.md
+      - Dialect Profiles: user/dialect_profiles.md
+      - Benchmarking: user/benchmarking.md
+
+  - Developer Guide:
+      - Overview: Developer/Developer_Guide_for_Adding_New_Backends.md
+      - Adding New Backends: Developer/New_Backend_Template.md
+      - Unified Metadata Schema (UMS): Developer/Unified_Metadata_Schema_(UMS)_v1.0.md
+      - Backend Loader: Developer/Public_Backend_Loader.md
+      - Recommended Folder Structure: Developer/Recommended_Folder_Structure.md
+      - Test Templates:
+          - Backend Test Template: Developer/Template_Test_Backend.md
+          - Test Rule Backend: Developer/Test_Rule_Backend.md
+          - Test CRF Backend: Developer/Test_CRF_Backend.md
+          - Test CLI Commands: Developer/Test_CLI_Commands.md
+          - Integration Tests: Developer/Test_Syllabify_Integration.md
+      - CRF Training:
+          - Training Guide: Developer/Adding_Tagset_and_Feature_Template_to_crf.md
+          - CRF Freeze Workflow: Developer/CHANGELOG_template.md
+
+  - Linguistic Documentation:
+      - BI‑based Syllabification: BI-based_Zomi_Syllabification.md
+      - Tagset Information: Backends_Tagset_Info.md
+      - Linguistic Contributors Guide: Linguistic_Contributors_Guide.md
+
+  - Infrastructure:
+      - Infra Maintainers Guide: Infra_Maintainers_Guide.md
+      - Release Checklist: RELEASE_CHECKLIST.md
+      - Release Checklist v0.1.0: RELEASE_CHECKLIST_v0.1.0.md
+
+  - API Reference:
+      - API Overview: api_reference/api_overview.md
+      - Engine: api_reference/engine.md
+      - Backends: api_reference/backends.md
+      - Profiles: api_reference/profiles.md
+
+  - Changelog:
+      - CHANGELOG: ../CHANGELOG.md
+      - CHANGELOG v0.1.0: ../CHANGELOG_v0.1.0.md
