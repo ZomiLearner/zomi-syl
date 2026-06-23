@@ -13,10 +13,12 @@ import toml
 from pathlib import Path
 
 from zomi_syl.config.loader import load_config_file, validate_config
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 import logging
+
 logger = logging.getLogger(__name__)
 
 CONFIG_PATH = Path.home() / ".zomi-syl.toml"

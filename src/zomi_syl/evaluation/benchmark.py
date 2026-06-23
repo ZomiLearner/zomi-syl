@@ -13,21 +13,27 @@ Generates:
 """
 
 from __future__ import annotations
+from typing import List, Optional
 
 from zomi_syl.core.pipeline import run_pipeline
 from zomi_syl.evaluation.metrics import syllable_accuracy, boundary_f1
 from zomi_syl.evaluation.reports import generate_markdown_report, generate_html_report
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 
 def run_benchmark(
+    models: Optional[List[str]] = None,
     backend: str = "auto",
+    dialect: str = "auto",
     dataset: str = "auto",
+    dataset_version: str = "latest",
     report_path: str | None = None,
 ) -> str:
     """
@@ -79,7 +85,30 @@ def run_benchmark(
             md = generate_markdown_report(results)
             open(report_path, "w", encoding="utf-8").write(md)
 
-    return generate_markdown_report(results)
+    # return generate_markdown_report(results)
+    # Return raw results (dict), not Markdown
+    # return results
+    # Return structured dict (not markdown)
+    # return {
+    #     "model": backend,
+    #     "dialect": dialect,
+    #     "dataset_version": dataset_version,
+    #     "results": results,
+    # }
+    return {
+        "model": backend,
+        "dialect": dialect,
+        "dataset_version": dataset_version,
+
+        # REQUIRED BY TEST SUITE
+        "accuracy": acc,
+        "boundary_f1": f1,
+
+        # full per-model results
+        "results": results,
+    }
+
+
 
 
 def _load_dummy_dataset():

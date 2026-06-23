@@ -25,12 +25,13 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 
 from zomi_syl.core.pipeline import run_pipeline
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

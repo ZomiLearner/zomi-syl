@@ -85,6 +85,10 @@ class BaseSyllabifier(ABC):
         • predict_batch()
         • get_metadata()
     """
+    
+    backend_name: str = None
+    backend_version: str = "1.0.0"
+    backend_type: str = None  # "rule", "crf", "fst", "transformer", etc.
 
     @abstractmethod
     def predict(self, word: str) -> Prediction:
@@ -101,6 +105,37 @@ class BaseSyllabifier(ABC):
         Must return a list of Prediction objects.
         """
         raise NotImplementedError
+
+
+        # ------------------------------
+    # Unified Metadata Schema (UMS)
+    # ------------------------------
+    def _base_ums(self) -> Dict[str, Any]:
+        return {
+            "backend": {
+                "name": self.backend_name,
+                "version": self.backend_version,
+                "type": self.backend_type,
+            },
+            "model": {
+                "id": getattr(self, "model_id", None),
+                "language": "zomi",
+                "dialect": getattr(self, "dialect", None),
+                "trained_on": getattr(self, "trained_on", []),
+                "created_at": getattr(self, "created_at", None),
+                "updated_at": getattr(self, "updated_at", None),
+            },
+            "features": self._feature_metadata(),
+            "runtime": {
+                "latency_ms": None,
+                "confidence_method": getattr(self, "confidence_method", None),
+                "device": "cpu",
+            },
+        }
+
+    def _feature_metadata(self) -> Dict[str, Any]:
+        """Backends override this."""
+        return {}
 
     @abstractmethod
     def get_metadata(self) -> Dict[str, Any]:

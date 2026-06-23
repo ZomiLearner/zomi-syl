@@ -15,24 +15,34 @@ Public API:
     get_supported_profiles()
 """
 
+import importlib
 from pathlib import Path
 from typing import Dict, Any, List
 
 from zomi_syl.exceptions import ZomiSylError
-from zomi_syl.models.loader import load_model
+from zomi_syl.utils.model_paths import resolve_model_path
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 
 import logging
+
 logger = logging.getLogger(__name__)
 
-
+BACKENDS = {
+    "rule": "zomi_syl.backends.rule_backend.RuleBackend",
+    "crf": "zomi_syl.backends.crf_backend.CRFBackend",
+}
 
 # ---------------------------------------------------------------------------
 # Base directory
 # ---------------------------------------------------------------------------
 
+def _import_backend(path: str):
+    module_name, class_name = path.rsplit(".", 1)
+    module = importlib.import_module(module_name)
+    return getattr(module, class_name)
 
 def _models_root() -> Path:
     """Return the root directory containing all local models."""
@@ -62,6 +72,37 @@ def _load_json(path: Path) -> Dict[str, Any]:
 # Public API
 # ---------------------------------------------------------------------------
 
+def load_backend(name: str):
+    name = name.lower()
+
+    if name not in BACKENDS:
+        raise ZomiSylError(f"Unknown backend: {name}")
+
+    # try:
+    #     if name == "rule":
+    #         # packaged rule model directory
+    #         # model_dir = importlib.resources.files("zomi_syl.models.rule")
+    #         model_dir = importlib.resources.files("zomi_syl") / "models" / "rule"
+    #         return RuleBackend(str(model_dir))
+
+    #     if name == "crf":
+    #         # CRF resolves its own model_dir internally
+    #         return CRFBackend()
+
+    # except Exception as e:
+    #     raise ZomiSylError(f"Failed to load backend '{name}': {e}")
+    backend_path = BACKENDS[name]
+    backend_cls = _import_backend(backend_path)
+
+    try:
+        # Try passing model_dir first
+        model_dir = resolve_model_path(name)
+        return backend_cls(str(model_dir))
+    except TypeError:
+        # Backends like CRFBackend that don't accept model_dir
+        return backend_cls()
+    except Exception as e:
+        raise ZomiSylError(f"Failed to load backend '{name}': {e}")
 
 def list_models() -> List[str]:
     """
@@ -89,19 +130,21 @@ def list_models() -> List[str]:
     return models
     # return ["rule"] + sorted(local)
 
+
 def list_installed_backends() -> list[str]:
     """
     Return a list of installed backend names (e.g., ['rule', 'crf']).
     """
     return list_models()
     # backends = []
-    # for name in list_models():  # your existing registry function
+    # for name in list_models():  # the existing registry function
     #     try:
     #         load_model(name)
     #         backends.append(name)
     #     except Exception:
     #         pass
     # return backends
+
 
 def model_exists(name: str) -> bool:
     return name in list_models()
@@ -122,6 +165,20 @@ def get_model_path(name: str) -> Path:
 
     return path
 
+# def resolve_model_path(backend_name: str) -> Path:
+#     """
+#     Unified model directory resolver for all backends.
+#     Always loads packaged models, never source-tree paths.
+#     """
+#     backend_name = backend_name.lower()
+
+#     # All packaged models live under: zomi_syl/models/<backend_name>/
+#     base = importlib.resources.files("zomi_syl") / "models" / backend_name
+
+#     if not base.exists():
+#         raise FileNotFoundError(f"Model directory not found for backend '{backend_name}': {base}")
+
+#     return Path(base)
 
 def _load_metadata(name: str) -> Dict[str, Any]:
     """

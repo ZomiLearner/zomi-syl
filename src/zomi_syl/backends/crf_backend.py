@@ -13,6 +13,7 @@ from zomi_syl.core.interfaces import (
 )
 
 from zomi_syl.utils.features import strip_and_flags, sent2features
+from zomi_syl.utils.model_paths import resolve_model_path
 
 
 class CRFBackend(BaseSyllabifier):
@@ -23,8 +24,14 @@ class CRFBackend(BaseSyllabifier):
         strip_and_flags() → sent2features()
     - Predicts BIO tags and converts them to syllables + boundaries.
     """
+    backend_name: str = "crf"
+    backend_version: str = "1.0.0"
+    backend_type: str = "statistical"
 
     def __init__(self, model_dir: str | None = None):
+        self.backend_name = self.backend_name
+        if model_dir is None:
+            model_dir = resolve_model_path("crf")
         # 1. Resolve model directory
         if model_dir is not None:
             self.model_dir = Path(model_dir)
@@ -39,6 +46,12 @@ class CRFBackend(BaseSyllabifier):
 
         # 3. Load model
         self.model = joblib.load(self.model_path)
+        
+        # 4. Get/Define CRF tagset
+        self.tagset = getattr(self.model, "tagset", ["B", "I"])
+        
+        # 5. Get/Define feature templates (must match training)
+        self.feature_templates = getattr(self.model, "feature_templates", [])
 
     # def __init__(self, model_dir: str | None = None):
     #     self.model_dir = Path(model_dir)
@@ -164,19 +177,26 @@ class CRFBackend(BaseSyllabifier):
     # --------------------------------------------------------------
     # Metadata
     # --------------------------------------------------------------
+    # Model specific features
+    def _feature_metadata(self):
+        return {
+            "tagset": self.tagset,
+            "num_features": len(self.feature_templates),
+            "feature_templates": self.feature_templates,
+            "model_path": str(self.model_path),
+        }
 
-    def get_metadata(self) -> Dict[str, Any]:
+    def get_metadata(self, include_ruleset=False) -> Dict[str, Any]:
         return {
             "backend_type": "crf",
-            "version": "1.0.0",
+            "version": self.backend_version,
             "capabilities": {
                 "supports_confidence": True,
                 "supports_batch": True,
                 "supports_gpu": False,
                 "supports_cpu": True,
             },
-            "model_path": str(self.model_path),
-            "model_dir": str(self.model_dir),
+            "ums": self._base_ums(),
         }
 
     # --------------------------------------------------------------

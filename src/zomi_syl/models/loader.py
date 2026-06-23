@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 from zomi_syl.exceptions import ZomiSylError
+
 # from zomi_syl.logging_config import get_logger
 
 # NEW: clean imports
@@ -36,6 +37,7 @@ from zomi_syl.backends.crf_backend import CRFBackend
 
 # logger = get_logger(__name__)
 import logging
+
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
@@ -146,6 +148,7 @@ def load_model(name: str, *, force_reload: bool = False) -> Any:
     Load a model by name with lazy caching.
     """
     from zomi_syl.registry.models import get_model_info
+
     if not force_reload and name in _MODEL_CACHE:
         return _MODEL_CACHE[name]
 

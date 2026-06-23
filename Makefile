@@ -218,6 +218,20 @@ install:
 dev-install:
 	$(PYTHON) -m pip install -e .[dev]
 
+.PHONY: clean-pyc
+clean-pyc:
+	find . -name "*.pyc" -delete
+	find . -name "__pycache__" -type d -exec rm -rf {} +
+
+# ----------------------------------------
+# Generate changelog
+# ----------------------------------------
+.PHONY: changelog
+changelog:
+	@echo "Generating CHANGELOG.md..."
+	@python3 scripts/generate_changelog.py
+	@echo "Done."
+
 # ----------------------------------------
 # Lint & Format
 # ----------------------------------------

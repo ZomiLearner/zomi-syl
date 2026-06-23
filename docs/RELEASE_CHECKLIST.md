@@ -1,10 +1,8 @@
-Here is a polished, production‑ready **`RELEASE_CHECKLIST.md`** for **zomi‑syl v0.1.0**, written as a standalone document you can commit directly into your repo.  
-It reflects your current architecture (rule + crf only), your model layout, your packaging structure, and your developer workflow.
-
----
-
 # **RELEASE_CHECKLIST.md**  
+
 ### _zomi‑syl v0.1.0 — Release Preparation Checklist_
+
+A polished, production‑ready **`RELEASE_CHECKLIST.md`** for **zomi‑syl v0.1.0**, written as a standalone document.
 
 This document lists all required steps before publishing **zomi‑syl v0.1.0** to PyPI.  
 Version 0.1.0 includes **rule** and **crf** backends only.

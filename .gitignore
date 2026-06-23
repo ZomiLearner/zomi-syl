@@ -52,6 +52,7 @@ temp/
 !src/zomi_syl/models/**/*.joblib
 !src/zomi_syl/models/**/*.json
 !src/zomi_syl/models/**/*.txt
+src/zomi_syl/models/__pycache__/
 
 # ============================================================
 # IMPORTANT:

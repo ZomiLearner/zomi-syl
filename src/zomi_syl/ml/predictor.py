@@ -22,14 +22,15 @@ Public API:
 from typing import Any, Dict, List
 
 from zomi_syl.exceptions import ZomiSylError
+
 # from zomi_syl.logging_config import get_logger
 from zomi_syl.models.loader import load_model
 from zomi_syl.features import strip_and_flags, sent2features, labels_to_syllables
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

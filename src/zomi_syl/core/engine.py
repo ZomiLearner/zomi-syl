@@ -27,8 +27,8 @@ from zomi_syl.registry.models import list_installed_backends
 # logger = get_logger(__name__)
 
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -137,6 +137,7 @@ def _validate_input(word: str, dialect: str) -> None:
 
 #     return result
 
+
 def predict(
     word: str, *, model: str = "auto", dialect: str = "auto", include_metadata: bool = False
 ) -> Prediction:
@@ -177,7 +178,7 @@ def predict(
     # -----------------------------
     backend = _load_backend(model)
     if backend is None:
-        
+
         # s_msg =  f"Requested backend '{model}' is unavailable"
         available = list_installed_backends()
         msg = (
@@ -224,6 +225,6 @@ def predict_batch(
 
 
 def run_syllabifier(
-    word: str, model: str, dialect: str, return_metadata: bool = False
+    word: str, model: str, dialect: str, include_metadata: bool = False
 ) -> Prediction:
-    return predict(word, model=model, dialect=dialect, include_metadata=return_metadata)
+    return predict(word, model=model, dialect=dialect, include_metadata=include_metadata)

@@ -29,8 +29,8 @@ from zomi_syl.core.result import SyllabificationResult
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

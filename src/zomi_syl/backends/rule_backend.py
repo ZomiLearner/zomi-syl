@@ -471,13 +471,20 @@ from zomi_syl.core.interfaces import (
     ConfidenceScore,
 )
 
-# Use your v6 engine
+# Use v6 engine
 from zomi_syl.rule_based.syllabify_v6 import syllabify_v6
+from zomi_syl.utils.model_paths import resolve_model_path
+
 
 
 class RuleBackend(BaseSyllabifier):
+    backend_name: str = "rule"
+    backend_version: str = "1.0.0"
+    backend_type: str = "rule"
 
-    def __init__(self, model_dir: str):
+    def __init__(self, model_dir: str | None = None):
+        if model_dir is None:
+            model_dir = resolve_model_path("rule")
         self.model_dir = Path(model_dir)
 
         ruleset_path = self.model_dir / "ruleset.json"
@@ -511,7 +518,7 @@ class RuleBackend(BaseSyllabifier):
             confidence=conf,
             raw={
                 "backend": "rule-v6",
-                "ruleset": self.ruleset,
+                # "ruleset": self.ruleset,
             },
         )
 
@@ -522,14 +529,31 @@ class RuleBackend(BaseSyllabifier):
     # Metadata
     # ------------------------------------------------------------------
 
-    def get_metadata(self) -> Dict[str, Any]:
+    def _feature_metadata(self):
         return {
-            "backend_type": "rule-reverse" if self.use_reverse else "rule",
+            "num_onsets": len(self.ruleset["onsets"]),
+            "num_nuclei": len(self.ruleset["nuclei"]),
+            "num_codas": len(self.ruleset["codas"]),
+            "num_rules": len(self.ruleset["rules"]),
+            "ruleset_version": self.ruleset["version"],
+        }
+
+    def get_metadata(self, include_ruleset=False) -> Dict[str, Any]:
+        meta = {
+            "backend_type": "rule", # "rule-reverse" if self.use_reverse else "rule",
             "version": "1.0.0",
             "capabilities": {
                 "supports_confidence": True,
                 "supports_batch": True,
                 "supports_gpu": False,
             },
-            "model_dir": str(self.model_dir),
+             "ums": self._base_ums(),
         }
+        
+        if include_ruleset:
+            meta["ums"]["features"]["ruleset_full"] = self.ruleset
+
+        return meta
+
+    def __call__(self, word: str) -> Prediction:
+        return self.predict(word)

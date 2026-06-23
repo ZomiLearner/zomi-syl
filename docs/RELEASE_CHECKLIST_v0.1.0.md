@@ -135,5 +135,3 @@
 - [ ] Add **transformer backend regression tests**  
 
 ---
-
-If you want, I can also generate a **GitHub Action** that automates the entire v0.1.1 release pipeline, or a **Makefile target** that wraps the whole checklist into a single command.

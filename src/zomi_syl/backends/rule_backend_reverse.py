@@ -8,7 +8,7 @@ class ReverseRuleset:
     onsets: List[str]
     nuclei: List[str]
     codas: List[str]
-    # Optional: suffixes/prefixes if you want to exploit morphology later
+    # Optional: suffixes/prefixes if one wants to exploit morphology later
     suffixes: Optional[List[str]] = None
     prefixes: Optional[List[str]] = None
 
@@ -38,7 +38,7 @@ def segment_graphemes(word: str) -> List[str]:
     """
     Segment into graphemes (digraph‑aware).
     Assumes digraphs are two‑char onsets like 'kh', 'ng', 'ph', etc.
-    You can adapt this to use your existing grapheme segmenter.
+    It can adapt this to use the existing grapheme segmenter.
     """
     digraphs = {"kh", "ng", "ch", "ph", "ts", "ny"}
     i = 0
@@ -72,7 +72,7 @@ def reverse_syllabify_segment(graphemes: List[str], rules: ReverseRuleset) -> Li
         j = i
         while j >= 0:
             # Try longest possible nucleus (e.g. 'aaw', 'iai', etc.)
-            # Here we just check single grapheme nuclei; adapt if your nuclei are multi‑grapheme.
+            # Here we just check single grapheme nuclei; adapt if the nuclei are multi‑grapheme.
             if is_nucleus(graphemes[j], rules):
                 nucleus_start = nucleus_end = j
                 break
@@ -124,7 +124,7 @@ def reverse_syllabify_segment(graphemes: List[str], rules: ReverseRuleset) -> Li
 def reverse_syllabify(word: str, rules_dict: Dict[str, Any]) -> List[str]:
     """
     Public API: reverse syllabify a Zomi word using a ruleset dict
-    compatible with your existing ruleset.json structure.
+    compatible with the existing ruleset.json structure.
     """
     rules = ReverseRuleset(
         onsets=rules_dict["onsets"],

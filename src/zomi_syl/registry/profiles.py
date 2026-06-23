@@ -17,12 +17,13 @@ from typing import Dict, Any, List
 
 from zomi_syl.exceptions import ZomiSylError
 from zomi_syl.validation.profile_validator import validate_profile
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

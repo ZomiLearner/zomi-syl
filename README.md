@@ -47,8 +47,10 @@ It is the foundation of the broader **zomi‑nlp** ecosystem.
   - Confusion matrices
 
 - **CLI interface**
-  - `zomi-syl "itna"`
-  - `zomi-syl --model transformer --dialect tedim`
+  - `zomi-syl syllabify "itna"`
+  - `zomi-syl syllabify --backend crf "itna"`
+  - `zomi-syl syllabify --backend rule "itna"`
+  - `zomi-syl models list`
 
 - **Production‑ready**
   - Docker support

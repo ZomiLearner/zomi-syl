@@ -14,6 +14,47 @@ import sklearn_crfsuite
 # Unified feature extractor
 from .features import strip_and_flags, sent2features
 
+FEATURE_TEMPLATES = [
+    "bias",
+    "char",
+    "char.lower",
+    "is_digit",
+    "is_alpha",
+    "is_upper",
+    "is_lower",
+    "pos",
+    "pos_from_end",
+    "prev_hyphen",
+    "prev.char",
+    "prev.char.lower",
+    "prev.prev_hyphen",
+    "BOS",
+    "next.char",
+    "next.char.lower",
+    "next_prev_hyphen",
+    "EOS",
+    "is_onset_bigram",
+    "is_onset_trigram",
+    "prev_is_onset",
+    "next_is_onset",
+    "is_coda",
+    "prev_is_coda",
+    "next_is_coda",
+    "is_vowel",
+    "is_long_vowel",
+    "vowel_class",
+    "suffix_2",
+    "suffix_3",
+    "suffix_4",
+    "prefix_2",
+    "prefix_3",
+    "is_prefix",
+    "prefix_class",
+    "char_type",
+    "prev_char_type",
+    "next_char_type",
+    "cvc_pattern_window",
+]
 
 # -----------------------------
 # Data loading
@@ -122,6 +163,8 @@ def main():
 
     print(f"Training on {len(X_train)} words (skipped {skipped})...")
     crf = train_crf(X_train, y_train)
+    crf.tagset = ["B", "I"]
+    crf.feature_templates = FEATURE_TEMPLATES
     save_model(crf, args.output)
 
 

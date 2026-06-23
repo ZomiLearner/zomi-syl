@@ -18,12 +18,13 @@ from typing import Dict, Any, Optional, List
 from huggingface_hub import HfApi, HfHubHTTPError, RepositoryNotFoundError
 
 from zomi_syl.exceptions import ZomiSylError
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------

@@ -27,12 +27,13 @@ from zomi_syl.exceptions import ZomiSylError
 from zomi_syl.models.cache import (
     _save_metadata,
 )
+
 # from zomi_syl.logging_config import get_logger
 
 # logger = get_logger(__name__)
 import logging
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -70,7 +71,7 @@ def _download_with_progress(repo: str, filename: str, token: Optional[str]) -> P
             force_download=False,
         )
         return Path(path)
-    except HfHubError as e:
+    except HfHubHTTPError as e:
         _fail(f"Failed to download '{filename}' from '{repo}': {e}")
 
 
