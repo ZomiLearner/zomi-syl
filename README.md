@@ -1,314 +1,303 @@
-# Zomi Syllabifier (zomi-syl)
-
-**zomi-syl** is a modular, dialect‑aware syllabification library for the Zomi language family.  
-It provides **rule‑based**, **CRF**, **FST**, **BiLSTM**, **BiLSTM‑CRF**, and **Transformer** backends, with automatic model selection, Hugging Face integration, and support for multiple dialect profiles.
-
-The library is designed for:
-
-- Linguistic research  
-- NLP pipelines  
-- Tokenization and morphology  
-- Phonology and phonemization  
-- Batch processing and dataset annotation  
-- Benchmarking and model comparison  
-
-It is the foundation of the broader **zomi‑nlp** ecosystem.
+# ⭐ **README.md (v0.1.0 — Pre‑Release)**  
 
 ---
 
-## ✨ Features
+# **zomi‑syl**
 
-- **Dialect‑aware syllabification**
-  - csy [Siyin], ctd [Tedim] , gnb [Gangte], kmm [Kom Rem], pck [Paite], vap [Vaiphei], smt [Simte], tcz [Thado/Thadou], zom [Zo/Zou], [Mate], [Thangkhal], Zolai Standard, Myanmar Zomi, India Zomi
-  - Custom profiles supported
+**A modular, dialect‑aware Zomi syllabification library with rule‑based and CRF backends.**
 
-- **Multiple backends**
-  - Rule‑based (fastest)
-  - CRF
-  - FST
-  - BiLSTM
-  - BiLSTM‑CRF (balanced default)
-  - Transformer (highest accuracy)
+`zomi-syl` provides a **production‑ready syllabifier** for Zomi, supporting multiple dialects, multiple backends, and a clean, extensible architecture. It includes:
 
-- **Hugging Face Hub integration**
-  - Auto‑download models
-  - Auto‑download datasets
-  - Local caching
-
-- **Batch processing engine**
-  - Streaming mode
-  - CSV/JSON/JSONL writers
-
-- **Evaluation suite**
-  - Boundary F1
-  - Syllable accuracy
-  - Speed benchmarks
-  - Confidence scoring
-  - Confusion matrices
-
-- **CLI interface**
-  - `zomi-syl syllabify "itna"`
-  - `zomi-syl syllabify --backend crf "itna"`
-  - `zomi-syl syllabify --backend rule "itna"`
-  - `zomi-syl models list`
-
-- **Production‑ready**
-  - Docker support
-  - Pre‑commit hooks
-  - GitHub Actions (tests, lint, release, docs, demo)
+- A fast **rule‑based** syllabifier  
+- A statistical **CRF** syllabifier  
+- A unified API  
+- A full CLI  
+- A backend registry  
+- Benchmarking tools  
+- Dialect profiles  
+- A clean, documented developer workflow  
 
 ---
 
-## 📦 Installation
+## 🚀 **Features**
+
+- **Multiple backends**: rule‑based, CRF, transformer‑ready  
+- **Dialect‑aware** syllabification (csy [Siyin], ctd [Tedim] , gnb [Gangte], kmm [Kom Rem], pck [Paite], vap [Vaiphei], smt [Simte], tcz [Thado/Thadou], zom [Zo/Zou], [Mate], [Thangkhal], Zolai Standard, Myanmar Zomi, India Zomi)  
+- **Unified API** (`zs.syllabify()`, `zs.analyze()`)  
+- **Full CLI** (`zomi-syl syllabify`, `zomi-syl models benchmark`, `zomi-syl models compare`)
+- **Benchmarking & evaluation tools**  
+- **Extensible backend architecture**  
+- **Clean developer documentation**  
+
+---
+
+## 📦 **Installation**
 
 ```bash
 pip install zomi-syl
 ```
 
-Optional extras:
+---
+
+## 🧠 **Quick Start**
+
+### **Syllabify a word**
 
 ```bash
-pip install zomi-syl[fst]
-pip install zomi-syl[torch]
-pip install zomi-syl[all]
+zomi-syl syllabify itna
+```
+
+### **Analyze a word**
+
+```bash
+zomi-syl analyze itna --json
+```
+
+### **Batch syllabify**
+
+```bash
+zomi-syl batch words.txt --output out.txt
 ```
 
 ---
 
-## 🚀 Quickstart
+## 🧰 **Python API**
 
 ```python
 import zomi_syl as zs
 
 zs.syllabify("itna")
-# → ["it", "na"]
-```
-
-Specify a model:
-
-```python
-zs.syllabify("itna", model="rule")
-zs.syllabify("itna", model="bilstm_crf")
-zs.syllabify("itna", model="transformer")
-```
-
-Specify a dialect:
-
-```python
-zs.syllabify("itna", dialect="tedim")
-zs.syllabify("itna", dialect="zo_zou")
-```
-
-Full analysis:
-
-```python
 zs.analyze("itna")
 ```
 
 ---
 
-## 🌏 Dialect Profiles
+## 🧩 **Backends**
 
-Dialect profiles live in:
+`zomi-syl` supports multiple backends through a unified registry:
+
+- **rule** — deterministic rule‑based syllabifier  
+- **crf** — statistical CRF syllabifier  
+- **transformer** — placeholder for future transformer models  
+
+List available backends:
+
+```bash
+zomi-syl models list
+```
+
+Show backend metadata:
+
+```bash
+zomi-syl models info crf
+```
+
+---
+
+## 📊 **Benchmarking**
+
+### **Single backend**
+
+```bash
+zomi-syl models benchmark crf
+```
+
+### **Compare multiple backends**
+
+```bash
+zomi-syl models compare rule crf
+```
+
+### **Compare all backends**
+
+```bash
+zomi-syl models compare --all
+```
+
+---
+
+## 🩺 **Diagnostics**
+
+Run a full backend self‑test:
+
+```bash
+zomi-syl models doctor
+```
+
+This checks:
+
+- registry integrity  
+- model metadata  
+- backend loadability  
+- single prediction  
+- batch prediction  
+
+---
+
+## 🌏 **Dialect Profiles**
+
+Profiles live under:
 
 ```bash
 src/zomi_syl/profiles/
 ```
 
-Each profile contains:
+Supported dialects:
 
-- `vowels.json`
-- `onsets.json`
-- `codas.json`
-- `nuclei.json`
-- `rules.json`
-- `profile.json` (metadata)
+- Gangte | Not Yet
+- Kom | Not Yet
+- Mate | Not Yet
+- `Paite  | Yes`
+- Simte | Not Yet
+- Siyin | Not Yet
+- `Tedim  | Yes`
+- Thangkhaal | Not Yet
+- Thado/Thadou | Not Yet
+- Vaiphei | Not Yet
+- Zo/Zou | Not Yet
+- India Zomi | Not Yet
+- Myanmar Zomi | Not Yet
+- Zolai Standard | Not Yet
 
-Available profiles:
+Eventhough some dialects are not yet supportted, `zomi-syl` will give higher 90% accurarcy for all the dialects.
 
-- `tedim`
-- `paite`
-- `zo_zou`
-- `siyin`
-- `zolai_standard`
-- `myanmar_zomi`
-- `india_zomi`
-
-Use a profile:
-
-```python
-zs.syllabify("itna", dialect="tedim")
-```
-
----
-
-## 🧠 Model Selection
-
-```python
-zs.syllabify("itna", model="rule")
-zs.syllabify("itna", model="crf")
-zs.syllabify("itna", model="fst")
-zs.syllabify("itna", model="bilstm")
-zs.syllabify("itna", model="bilstm_crf")
-zs.syllabify("itna", model="transformer")
-```
-
-Auto mode:
-
-```python
-zs.syllabify("itna")  
-# → chooses best balanced model (bilstm_crf)
-```
-
-Dialect‑specific models (if available):
-
-```python
-zs.syllabify("itna", model="bilstm_crf", dialect="tedim")
-```
-
----
-
-## 📚 Batch Processing
-
-```python
-from zomi_syl.batch import processor
-
-proc = processor.BatchProcessor(model="bilstm_crf")
-proc.process_file("input.txt", output="output.jsonl")
-```
-
-Streaming mode:
-
-```python
-for result in proc.stream(["itna", "Zomite"]):
-    print(result)
-```
-
----
-
-## 📊 Benchmarking
-
-```python
-import zomi_syl as zs
-
-zs.benchmark(models=["rule", "bilstm_crf"], dialect="tedim")
-```
-
-Generate a full report:
-
-```python
-from zomi_syl.evaluation.reports import generate_report
-
-report = generate_report(models="all", dialect="zolai_standard")
-print(report)
-```
-
----
-
-## 🖥 CLI Usage
+List profiles:
 
 ```bash
-zomi-syl "itna"
+zomi-syl profiles list
 ```
 
-Specify model:
+Show profile info:
 
 ```bash
-zomi-syl "itna" --model transformer
-```
-
-Specify dialect:
-
-```bash
-zomi-syl "itna" --dialect tedim
-```
-
-Batch mode:
-
-```bash
-zomi-syl --input words.txt --output out.jsonl
+zomi-syl profiles info tedim
 ```
 
 ---
 
-## 🏗 Architecture Overview
+## 🧪 **Testing**
 
-```bash
-zomi-syl
-│
-├── api.py                # Public API
-├── cli.py                # Command-line interface
-│
-├── core/                 # Engine + pipeline
-├── rule_based/           # Deterministic backend
-├── models/               # Bundled models + registry
-├── ml/                   # HF neural backends
-├── fst/                  # Finite-state backend
-├── datasets/             # HF dataset integration
-├── evaluation/           # Benchmarking + metrics
-├── profiles/             # Dialect profiles
-└── resources/            # Shared phonology + patterns
-```
-
----
-
-## 📘 Documentation
-
-Full documentation:
-
-- Architecture  
-- API reference  
-- Dialect profiles  
-- Benchmarking  
-- Deployment  
-- Migration guides  
-
-👉 [https://github.com/ZomiCommunity/zomi-syl](https://github.com/ZomiCommunity/zomi-syl)
-
----
-
-## 📓 Notebooks
-
-- Quickstart  
-- Compare models  
-- Dialect profiles  
-- Batch processing  
-- Benchmarking  
-
-Open in Colab/Kaggle:
-
-👉 [notebooks/README.md](notebooks/README.md)
-
----
-
-## 🧪 Tests
-
-Run tests:
+Run all tests:
 
 ```bash
 pytest
 ```
 
-Run performance benchmarks:
+Golden CRF regression data:
 
 ```bash
-pytest tests/performance
+tests/golden/crf_golden.tsv
 ```
 
 ---
 
-## 🤝 Contributing
+## 🗂 **Project Structure**
 
-See:
-
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
-Pull requests welcome!
+```bash
+src/zomi_syl/
+    api.py
+    cli.py
+    backends/
+    profiles/
+    models/
+    evaluation/
+    rule_based/
+    utils/
+    ...
+scripts/
+docs/
+tests/
+training/
+```
 
 ---
 
-## 📄 License
+## 🛠 **Development**
 
-MIT License.  
-See [LICENSE](LICENSE) for details.
+Developer documentation lives in:
+
+```bash
+docs/Developer/
+```
+
+Key guides:
+
+- Adding new backends  
+- Unified Metadata Schema (UMS)  
+- CRF training  
+- Backend loader  
+- Test templates  
+
+---
+
+## 📄 **Changelog**
+
+The changelog is generated automatically:
+
+```bash
+make changelog
+```
+
+Template:
+
+```bash
+docs/Developer/CHANGELOG_template.md
+```
+
+---
+
+## 📦 **Release Checklist**
+
+See:
+
+```bash
+docs/RELEASE_CHECKLIST_v0.1.0.md
+```
+
+---
+
+## 📜 **License**
+
+MIT License — see `LICENSE`.
+
+---
+
+## 🙌 **Contributing**
+
+See:
+
+```bash
+CONTRIBUTING.md
+```
+
+---
+
+## 🔗 **Command Reference**
+
+Full CLI command tree:
+
+```bash
+zomi-syl
+│
+├── syllabify
+├── analyze
+├── batch
+├── benchmark
+│
+├── profiles list|info|validate
+├── datasets list|download|validate
+│
+├── config show|path|validate|set
+├── cache info|clear|remove
+│
+├── validate
+├── download
+├── version
+│
+└── models
+    ├── list
+    ├── info
+    ├── benchmark
+    ├── compare
+    └── doctor
+```
