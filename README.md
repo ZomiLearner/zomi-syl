@@ -1,6 +1,21 @@
-# ⭐ **README.md (v0.1.0 — Pre‑Release)**  
-
----
+<p align="center">📦 <b>zomi‑syl</b></p>
+<p align="center">
+<a href="https://pypi.org/project/zomi-syl/">
+<img src="https://img.shields.io/pypi/v/zomi-syl.svg" alt="PyPI Version">
+</a>
+<a href="https://pypi.org/project/zomi-syl/">
+<img src="https://img.shields.io/pypi/dm/zomi-syl.svg" alt="Downloads">
+</a>
+<a href="https://github.com/ZomiLearner/zomi-syl/blob/main/LICENSE">
+<img src="https://img.shields.io/github/license/ZomiLearner/zomi-syl.svg" alt="License">
+</a>
+<a href="https://github.com/ZomiLearner/zomi-syl/actions">
+<img src="https://img.shields.io/github/actions/workflow/status/ZomiLearner/zomi-syl/tests.yml?branch=main" alt="CI Status">
+</a>
+<a href="https://ZomiLearner.github.io/zomi-syl">
+<img src="https://img.shields.io/badge/docs-online-blue.svg" alt="Documentation">
+</a>
+</p>
 
 # **zomi‑syl**
 
