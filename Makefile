@@ -309,5 +309,6 @@ allhelp: help help-cli list-backends list-models help-devs
 
 # Delete/Remove a tag and re-tag
 # git tag -d v0.1.905
+# git push origin --delete v0.1.905
 # git tag v0.1.906
 # git push -f origin v0.1.906
