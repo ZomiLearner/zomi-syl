@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/reference/BI-based_Zomi_Syllabification/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>BI‑based Syllabification - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../../user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../../user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_(Backends).md" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends.md" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template.md" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader.md" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure.md" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_(UMS)_v1.0.md" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation.md" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf.md" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend.md" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend.md" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend.md" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands.md" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration.md" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template.md" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Top_Level_Commands_v0.1.0/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../Backends_Tagset_Info/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/reference/BI-based_Zomi_Syllabification.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#why-o-is-not-needed-for-zomi-syllabification" class="nav-link">Why O is NOT needed for Zomi syllabification</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-what-o-means-in-bio-tagging" class="nav-link">1. What “O” means in BIO tagging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-why-o-does-not-make-sense-for-zomi-syllabification" class="nav-link">2. Why “O” does not make sense for Zomi syllabification</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-correct-tagset-for-zomi-syllabification" class="nav-link">3. Correct tagset for Zomi syllabification</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-how-hyphens-are-handled-eg-ki-itna" class="nav-link">4. How hyphens are handled (e.g., ki-itna)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-when-o-is-needed-for-contrast" class="nav-link">5. When “O” is needed (for contrast)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-conclusion" class="nav-link">6. Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="why-o-is-not-needed-for-zomi-syllabification">Why O is NOT needed for Zomi syllabification<a class="headerlink" href="#why-o-is-not-needed-for-zomi-syllabification" title="Permanent link">&para;</a></h1>
+<h2 id="1-what-o-means-in-bio-tagging">1. What “O” means in BIO tagging<a class="headerlink" href="#1-what-o-means-in-bio-tagging" title="Permanent link">&para;</a></h2>
+<p>In standard BIO tagging:</p>
+<ul>
+<li><strong>B</strong> = Begin a labeled span  </li>
+<li><strong>I</strong> = Inside a labeled span  </li>
+<li><strong>O</strong> = Outside any labeled span  </li>
+</ul>
+<p>The <strong>O</strong> tag is only meaningful when some tokens are <em>not part of any unit</em> the subject of interest (e.g., non-entity words in NER).</p>
+<hr />
+<h2 id="2-why-o-does-not-make-sense-for-zomi-syllabification">2. Why “O” does not make sense for Zomi syllabification<a class="headerlink" href="#2-why-o-does-not-make-sense-for-zomi-syllabification" title="Permanent link">&para;</a></h2>
+<p>In Zomi syllabification:</p>
+<ul>
+<li>Every <strong>character</strong> in a word belongs to <strong>some syllable</strong>.</li>
+<li>There are <strong>no characters</strong> that are “outside” syllables.</li>
+<li>Syllables are <strong>contiguous sequences</strong> of characters.</li>
+</ul>
+<p>Therefore:</p>
+<ul>
+<li>There is <strong>no valid position</strong> where a character should be tagged as <strong>O</strong>.</li>
+<li>Introducing <strong>O</strong> would create linguistically impossible patterns (e.g., a character “outside” any syllable).</li>
+</ul>
+<hr />
+<h2 id="3-correct-tagset-for-zomi-syllabification">3. Correct tagset for Zomi syllabification<a class="headerlink" href="#3-correct-tagset-for-zomi-syllabification" title="Permanent link">&para;</a></h2>
+<p>For Zomi syllable segmentation, the correct tagset is:</p>
+<ul>
+<li><strong>B</strong> = Begin a new syllable  </li>
+<li><strong>I</strong> = Inside the current syllable  </li>
+</ul>
+<p>Example: <code>itna</code> → <code>["i","t","n","a"]</code> with tags:</p>
+<ul>
+<li><code>B I B I</code> → <code>it-na</code></li>
+</ul>
+<p>No <strong>O</strong> is needed or meaningful here.</p>
+<hr />
+<h2 id="4-how-hyphens-are-handled-eg-ki-itna">4. How hyphens are handled (e.g., <code>ki-itna</code>)<a class="headerlink" href="#4-how-hyphens-are-handled-eg-ki-itna" title="Permanent link">&para;</a></h2>
+<p>Hyphens in Zomi orthography (e.g., <code>ki-itna</code>) are:</p>
+<ul>
+<li><strong>pre-existing syllable boundaries</strong>, not characters to be tagged</li>
+<li>stripped out <strong>before</strong> CRF tagging</li>
+<li>recorded via flags and reinserted later</li>
+</ul>
+<p>So the CRF sees only real characters, not hyphens.<br />
+There is still <strong>no position</strong> where an <strong>O</strong> tag would be appropriate.</p>
+<hr />
+<h2 id="5-when-o-is-needed-for-contrast">5. When “O” <em>is</em> needed (for contrast)<a class="headerlink" href="#5-when-o-is-needed-for-contrast" title="Permanent link">&para;</a></h2>
+<p>The <strong>O</strong> tag is essential in tasks where some tokens are outside labeled units, such as:</p>
+<ul>
+<li>Named Entity Recognition (NER)</li>
+<li>Chunking / shallow parsing</li>
+<li>Slot filling (e.g., virtual assistants)</li>
+<li>Event or relation extraction</li>
+<li>Sparse token classification (e.g., toxic spans, keyphrases)</li>
+</ul>
+<p>In these tasks, many tokens are <strong>not</strong> part of any labeled span, so <strong>O</strong> is required.</p>
+<p>In Zomi syllabification, this situation never arises.</p>
+<hr />
+<h2 id="6-conclusion">6. Conclusion<a class="headerlink" href="#6-conclusion" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>O is NOT needed for Zomi syllabification.</strong></li>
+<li>The correct CRF tagset is <strong>only</strong>: <code>["B", "I"]</code>.</li>
+<li>Every character belongs to a syllable; there is no “outside”.</li>
+<li>Hyphens are handled structurally (pre-split), not via tagging.</li>
+</ul>
+<p>BIO with <strong>B</strong> and <strong>I</strong> is the linguistically and technically correct choice for Zomi syllable segmentation.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
