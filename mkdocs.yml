@@ -1,11 +1,17 @@
 site_name: Zomi‑Syl Documentation
 site_description: "A modular, dialect‑aware Zomi syllabification library with multiple backends."
 site_author: "Zomi‑Syl Contributors"
+site_url: "https://ZomiLearner.github.io/zomi-syl/"
+
 repo_url: "https://github.com/ZomiLearner/zomi-syl"
 repo_name: "zomi-syl"
 
+extra:
+  version:
+    provider: mike
+
 theme:
-  name: material
+  name: mkdocs
   language: en
   features:
     - navigation.tabs
@@ -42,42 +48,40 @@ nav:
   - User Guide:
       - Installation: user/installation.md
       - Quick Start: user/quick_start.md
-      - CLI Overview: Top_Level_Commands_v0.1.0.md
+      - CLI Reference: user/cli_reference.md
       - Dialect Profiles: user/dialect_profiles.md
       - Benchmarking: user/benchmarking.md
 
   - Developer Guide:
-      - Overview: Developer/Developer_Guide_for_Adding_New_Backends.md
-      - Adding New Backends: Developer/New_Backend_Template.md
-      - Unified Metadata Schema (UMS): Developer/Unified_Metadata_Schema_(UMS)_v1.0.md
-      - Backend Loader: Developer/Public_Backend_Loader.md
-      - Recommended Folder Structure: Developer/Recommended_Folder_Structure.md
-      - Test Templates:
-          - Backend Test Template: Developer/Template_Test_Backend.md
-          - Test Rule Backend: Developer/Test_Rule_Backend.md
-          - Test CRF Backend: Developer/Test_CRF_Backend.md
-          - Test CLI Commands: Developer/Test_CLI_Commands.md
-          - Integration Tests: Developer/Test_Syllabify_Integration.md
+      - Adding New Models: developer/Adding_New_Models_(Backends).md
+      - Developer Guide for Adding Backends: developer/Developer_Guide_for_Adding_New_Backends.md
+      - New Backend Template: developer/New_Backend_Template.md
+      - Backend Loader: developer/Public_Backend_Loader.md
+      - Recommended Folder Structure: developer/Recommended_Folder_Structure.md
+      - Unified Metadata Schema (UMS): developer/Unified_Metadata_Schema_(UMS)_v1.0.md
+      - UMS Implementation: developer/UMS_Implementation.md
       - CRF Training:
-          - Training Guide: Developer/Adding_Tagset_and_Feature_Template_to_crf.md
-          - CRF Freeze Workflow: Developer/CHANGELOG_template.md
+          - Tagset & Feature Template: developer/Adding_Tagset_and_Feature_Template_to_crf.md
+      - Test Templates:
+          - Backend Test Template: developer/Template_Test_Backend.md
+          - Test Rule Backend: developer/Test_Rule_Backend.md
+          - Test CRF Backend: developer/Test_CRF_Backend.md
+          - Test CLI Commands: developer/Test_CLI_Commands.md
+          - Integration Tests: developer/Test_Syllabify_Integration.md
+      - Changelog Template: developer/CHANGELOG_template.md
 
-  - Linguistic Documentation:
-      - BI‑based Syllabification: BI-based_Zomi_Syllabification.md
-      - Tagset Information: Backends_Tagset_Info.md
-      - Linguistic Contributors Guide: Linguistic_Contributors_Guide.md
+  - Reference:
+      - Top‑Level Commands: reference/Top_Level_Commands_v0.1.0.md
+      - BI‑based Syllabification: reference/BI-based_Zomi_Syllabification.md
+      - Backends Tagset Info: reference/Backends_Tagset_Info.md
 
-  - Infrastructure:
-      - Infra Maintainers Guide: Infra_Maintainers_Guide.md
-      - Release Checklist: RELEASE_CHECKLIST.md
-      - Release Checklist v0.1.0: RELEASE_CHECKLIST_v0.1.0.md
-
-  - API Reference:
-      - API Overview: api_reference/api_overview.md
-      - Engine: api_reference/engine.md
-      - Backends: api_reference/backends.md
-      - Profiles: api_reference/profiles.md
+  - Guides:
+      - Linguistic Contributors Guide: guides/Linguistic_Contributors_Guide.md
+      - Infra Maintainers Guide: guides/Infra_Maintainers_Guide.md
+      - Release Checklist: guides/RELEASE_CHECKLIST.md
 
   - Changelog:
-      - CHANGELOG: ../CHANGELOG.md
-      - CHANGELOG v0.1.0: ../CHANGELOG_v0.1.0.md
+      - v0.1.0 Release Notes: changelog/RELEASE_CHECKLIST_v0.1.0.md
+
+  - About:
+      - About Zomi-Syl: about/About_Zomi-Syl.md

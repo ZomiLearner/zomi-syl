@@ -1,13 +1,18 @@
 # Include the Python package
 recursive-include src/zomi_syl *.py
-recursive-include src/zomi_syl/models *.joblib *.json *.txt
+
+# Include model files (including nested folders)
+recursive-include src/zomi_syl/models *.joblib *.json *.txt *.py
+
+# Include profiles (nested JSON files)
+recursive-include src/zomi_syl/profiles *.json
 
 # Include documentation
 include README.md
 include LICENSE
 recursive-include docs *.md
 
-# Exclude training pipeline
+# Exclude training pipeline and heavy dev-only directories
 prune training
 prune scripts
 prune data

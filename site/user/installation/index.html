@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/user/installation/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Installation - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../quick_start/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/user/installation.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#installation" class="nav-link">Installation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#requirements" class="nav-link">📦 Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#install-from-pypi" class="nav-link">🧰 Install from PyPI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#verify-installation" class="nav-link">📁 Verify Installation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#using-a-virtual-environment-recommended" class="nav-link">🧪 Using a Virtual Environment (Recommended)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#install-from-source-development-mode" class="nav-link">🔧 Install from Source (Development Mode)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#optional-developer-tools" class="nav-link">🧩 Optional Developer Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">🛠 Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
+<p>This page explains how to install <strong>zomi‑syl</strong>, the modular, dialect‑aware Zomi syllabification library.<br />
+You can install it from PyPI for normal use or from source if you are developing new backends.</p>
+<hr />
+<h2 id="requirements"><strong>📦 Requirements</strong><a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python <strong>3.9+</strong>  </li>
+<li>pip <strong>23+</strong>  </li>
+<li>macOS, Linux, or Windows  </li>
+<li>A virtual environment (recommended)</li>
+</ul>
+<hr />
+<h2 id="install-from-pypi"><strong>🧰 Install from PyPI</strong><a class="headerlink" href="#install-from-pypi" title="Permanent link">&para;</a></h2>
+<p>Install the latest stable release:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>zomi-syl
+</code></pre></div>
+<p>This installs:</p>
+<ul>
+<li>the core engine  </li>
+<li>rule‑based backend  </li>
+<li>CRF backend  </li>
+<li>dialect profiles  </li>
+<li>CLI (<code>zomi-syl</code>)  </li>
+<li>evaluation tools  </li>
+</ul>
+<hr />
+<h2 id="verify-installation"><strong>📁 Verify Installation</strong><a class="headerlink" href="#verify-installation" title="Permanent link">&para;</a></h2>
+<p>Check the installed version:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>version
+</code></pre></div>
+<p>Test a simple syllabification:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>syllabify<span class="w"> </span>itna
+</code></pre></div>
+<hr />
+<h2 id="using-a-virtual-environment-recommended"><strong>🧪 Using a Virtual Environment (Recommended)</strong><a class="headerlink" href="#using-a-virtual-environment-recommended" title="Permanent link">&para;</a></h2>
+<h3 id="venv"><strong>venv</strong><a class="headerlink" href="#venv" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>zomi-syl
+</code></pre></div>
+<h3 id="conda"><strong>conda</strong><a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>zomi-syl<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+conda<span class="w"> </span>activate<span class="w"> </span>zomi-syl
+pip<span class="w"> </span>install<span class="w"> </span>zomi-syl
+</code></pre></div>
+<hr />
+<h2 id="install-from-source-development-mode"><strong>🔧 Install from Source (Development Mode)</strong><a class="headerlink" href="#install-from-source-development-mode" title="Permanent link">&para;</a></h2>
+<p>If you are contributing or adding new backends:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ZomiLearner/zomi-syl.git
+<span class="nb">cd</span><span class="w"> </span>zomi-syl
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+<p>Editable mode allows live code changes without reinstalling.</p>
+<p>See <strong>Developer Documentation</strong> for backend development, metadata schema, and testing.</p>
+<hr />
+<h2 id="optional-developer-tools"><strong>🧩 Optional Developer Tools</strong><a class="headerlink" href="#optional-developer-tools" title="Permanent link">&para;</a></h2>
+<p>Some advanced tools live in <code>scripts/</code>:</p>
+<ul>
+<li>dataset cleaning  </li>
+<li>CRF training  </li>
+<li>evaluation scripts  </li>
+<li>golden data extraction  </li>
+</ul>
+<p>If you maintain a <code>requirements-dev.txt</code>, install them with:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting"><strong>🛠 Troubleshooting</strong><a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="command-not-found-zomi-syl"><strong>Command not found: <code>zomi-syl</code></strong><a class="headerlink" href="#command-not-found-zomi-syl" title="Permanent link">&para;</a></h3>
+<p>Try:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>zomi_syl<span class="w"> </span>version
+</code></pre></div>
+<p>If this works, your PATH is missing the Python scripts directory.</p>
+<hr />
+<h3 id="importerror-cannot-import-name-zomi_syl"><strong>ImportError: cannot import name <code>zomi_syl</code></strong><a class="headerlink" href="#importerror-cannot-import-name-zomi_syl" title="Permanent link">&para;</a></h3>
+<p>Ensure the package is installed:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>zomi-syl
+</code></pre></div>
+<p>Or activate your virtual environment.</p>
+<hr />
+<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Learn the CLI: <strong>Top‑Level Commands</strong>  </li>
+<li>Try the API: <strong>Quick Start</strong>  </li>
+<li>Explore dialect profiles: <strong>Dialect Profiles</strong>  </li>
+<li>Benchmark backends: <strong>Benchmarking Guide</strong>  </li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

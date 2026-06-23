@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        
+        <link rel="shortcut icon" href="/zomi-syl/v0.1/img/favicon.ico">
+        <title>Zomi‑Syl Documentation</title>
+        <link href="/zomi-syl/v0.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/zomi-syl/v0.1/css/fontawesome.min.css" rel="stylesheet">
+        <link href="/zomi-syl/v0.1/css/brands.min.css" rel="stylesheet">
+        <link href="/zomi-syl/v0.1/css/solid.min.css" rel="stylesheet">
+        <link href="/zomi-syl/v0.1/css/v4-font-face.min.css" rel="stylesheet">
+        <link href="/zomi-syl/v0.1/css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="/zomi-syl/v0.1/css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="/zomi-syl/v0.1/.">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="/zomi-syl/v0.1/." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="/zomi-syl/v0.1/developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/zomi-syl/v0.1/about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl" class="nav-link">zomi-syl</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+    <div class="row-fluid">
+      <div id="main-content" class="span12">
+        <h1 id="404-page-not-found" style="text-align: center">404</h1>
+        <p style="text-align: center"><strong>Page not found</strong></p>
+      </div>
+    </div>
+
+
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="/zomi-syl/v0.1/js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "/zomi-syl/v0.1",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="/zomi-syl/v0.1/js/base.js"></script>
+        <script src="/zomi-syl/v0.1/search/main.js"></script>
+        <script src="/zomi-syl/v0.1/js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

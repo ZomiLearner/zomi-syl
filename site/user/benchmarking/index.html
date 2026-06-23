@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/user/benchmarking/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Benchmarking - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../dialect_profiles/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../developer/Adding_New_Models_%28Backends%29/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/user/benchmarking.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#benchmarking-backends" class="nav-link">Benchmarking Backends</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#benchmark-a-single-backend" class="nav-link">📊 Benchmark a Single Backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#compare-multiple-backends" class="nav-link">⚖️ Compare Multiple Backends</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#compare-all-backends" class="nav-link">🌐 Compare All Backends</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#benchmark-datasets" class="nav-link">🧪 Benchmark Datasets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#backend-diagnostics" class="nav-link">🩺 Backend Diagnostics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#benchmark-reports" class="nav-link">📁 Benchmark Reports</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#benchmarking-in-python" class="nav-link">🧠 Benchmarking in Python</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tips-for-backend-developers" class="nav-link">🛠 Tips for Backend Developers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="benchmarking-backends"><strong>Benchmarking Backends</strong><a class="headerlink" href="#benchmarking-backends" title="Permanent link">&para;</a></h1>
+<p>Zomi‑Syl includes a built‑in benchmarking framework for evaluating syllabification backends.<br />
+You can benchmark a single backend, compare multiple backends, or run diagnostics to ensure models load correctly.</p>
+<p>Benchmarking is essential for:</p>
+<ul>
+<li>evaluating rule‑based vs CRF performance  </li>
+<li>validating new backends  </li>
+<li>regression testing  </li>
+<li>dialect‑specific evaluation  </li>
+<li>release readiness  </li>
+</ul>
+<hr />
+<h2 id="benchmark-a-single-backend"><strong>📊 Benchmark a Single Backend</strong><a class="headerlink" href="#benchmark-a-single-backend" title="Permanent link">&para;</a></h2>
+<p>To benchmark one backend:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf
+</code></pre></div>
+<p>This runs:</p>
+<ul>
+<li>syllable accuracy  </li>
+<li>boundary F1  </li>
+<li>confidence scoring (if supported)  </li>
+<li>dataset‑level summary  </li>
+</ul>
+<p>Benchmark a specific dialect:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf<span class="w"> </span>--dialect<span class="w"> </span>tedim
+</code></pre></div>
+<p>Output as JSON:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf<span class="w"> </span>--json
+</code></pre></div>
+<hr />
+<h2 id="compare-multiple-backends"><strong>⚖️ Compare Multiple Backends</strong><a class="headerlink" href="#compare-multiple-backends" title="Permanent link">&para;</a></h2>
+<p>Compare two or more backends:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>compare<span class="w"> </span>rule<span class="w"> </span>crf
+</code></pre></div>
+<p>This produces a side‑by‑side comparison of:</p>
+<ul>
+<li>accuracy  </li>
+<li>boundary F1  </li>
+<li>speed (if available)  </li>
+<li>metadata summary  </li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>compare<span class="w"> </span>rule<span class="w"> </span>crf<span class="w"> </span>transformer
+</code></pre></div>
+<hr />
+<h2 id="compare-all-backends"><strong>🌐 Compare All Backends</strong><a class="headerlink" href="#compare-all-backends" title="Permanent link">&para;</a></h2>
+<p>To benchmark every registered backend:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>compare<span class="w"> </span>--all
+</code></pre></div>
+<p>Useful for:</p>
+<ul>
+<li>release validation  </li>
+<li>regression testing  </li>
+<li>backend development  </li>
+<li>model selection  </li>
+</ul>
+<hr />
+<h2 id="benchmark-datasets"><strong>🧪 Benchmark Datasets</strong><a class="headerlink" href="#benchmark-datasets" title="Permanent link">&para;</a></h2>
+<p>Benchmarking uses datasets defined in:</p>
+<div class="highlight"><pre><span></span><code>src/zomi_syl/evaluation/
+</code></pre></div>
+<p>Default dataset:</p>
+<ul>
+<li><code>crf_golden.tsv</code> — gold standard regression set</li>
+</ul>
+<p>Specify a dataset:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf<span class="w"> </span>--dataset<span class="w"> </span>crf_golden
+</code></pre></div>
+<p>Specify a dataset version:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf<span class="w"> </span>--dataset-version<span class="w"> </span>latest
+</code></pre></div>
+<hr />
+<h2 id="backend-diagnostics"><strong>🩺 Backend Diagnostics</strong><a class="headerlink" href="#backend-diagnostics" title="Permanent link">&para;</a></h2>
+<p>Before benchmarking, run a full backend health check:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>doctor
+</code></pre></div>
+<p>This validates:</p>
+<ul>
+<li>registry entries  </li>
+<li>metadata schema  </li>
+<li>model file presence  </li>
+<li>backend loadability  </li>
+<li>single prediction  </li>
+<li>batch prediction  </li>
+</ul>
+<p>This is especially important when:</p>
+<ul>
+<li>adding new backends  </li>
+<li>modifying metadata  </li>
+<li>updating model files  </li>
+</ul>
+<p>See: <strong>Adding New Backends</strong></p>
+<hr />
+<h2 id="benchmark-reports"><strong>📁 Benchmark Reports</strong><a class="headerlink" href="#benchmark-reports" title="Permanent link">&para;</a></h2>
+<p>Export JSON:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>crf<span class="w"> </span>--json<span class="w"> </span>&gt;<span class="w"> </span>report.json
+</code></pre></div>
+<p>Advanced users can generate Markdown/HTML reports using the evaluation module.</p>
+<hr />
+<h2 id="benchmarking-in-python"><strong>🧠 Benchmarking in Python</strong><a class="headerlink" href="#benchmarking-in-python" title="Permanent link">&para;</a></h2>
+<p>You can also run benchmarks programmatically:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zomi_syl.evaluation.benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_benchmark</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">run_benchmark</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s2">&quot;crf&quot;</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="s2">&quot;tedim&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>This returns:</p>
+<ul>
+<li>accuracy  </li>
+<li>boundary F1  </li>
+<li>dataset version  </li>
+<li>backend metadata  </li>
+</ul>
+<hr />
+<h2 id="tips-for-backend-developers"><strong>🛠 Tips for Backend Developers</strong><a class="headerlink" href="#tips-for-backend-developers" title="Permanent link">&para;</a></h2>
+<p>When developing a new backend:</p>
+<ol>
+<li>Run diagnostics:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>doctor
+</code></pre></div>
+<ol>
+<li>Benchmark your backend:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>benchmark<span class="w"> </span>my_backend
+</code></pre></div>
+<ol>
+<li>Compare against existing backends:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>zomi-syl<span class="w"> </span>models<span class="w"> </span>compare<span class="w"> </span>rule<span class="w"> </span>crf<span class="w"> </span>my_backend
+</code></pre></div>
+<ol>
+<li>Add regression tests using:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>tests/backends/template_test_my_backend.py
+</code></pre></div>
+<p>See: <strong>Developer Documentation</strong></p>
+<hr />
+<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Install the library: <strong>Installation</strong>  </li>
+<li>Learn the CLI: <strong>Top‑Level Commands</strong>  </li>
+<li>Explore dialect profiles: <strong>Dialect Profiles</strong>  </li>
+<li>Add your own backend: <strong>Adding New Backends</strong>  </li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

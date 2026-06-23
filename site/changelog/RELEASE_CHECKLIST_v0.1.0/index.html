@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/changelog/RELEASE_CHECKLIST_v0.1.0/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>v0.1.0 Release Notes - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../../user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../../user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../guides/RELEASE_CHECKLIST/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../about/About_Zomi-Syl/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/changelog/RELEASE_CHECKLIST_v0.1.0.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#release_checklist_v010" class="nav-link">RELEASE_CHECKLIST_v0.1.0</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-preconditions" class="nav-link">1. Preconditions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-refresh-data" class="nav-link">2. Refresh Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-train-crf-model" class="nav-link">3. Train CRF Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-regenerate-golden-regression" class="nav-link">4. Regenerate Golden Regression</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-freeze-package-model" class="nav-link">5. Freeze + Package Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-validate-wheel" class="nav-link">6. Validate Wheel</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-documentation-updates" class="nav-link">7. Documentation Updates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-versioning" class="nav-link">8. Versioning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-tag-push" class="nav-link">9. Tag + Push</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-publish-to-pypi" class="nav-link">10. Publish to PyPI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#11-postrelease-validation" class="nav-link">11. Post‑Release Validation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#12-optional-enhancements" class="nav-link">12. Optional Enhancements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="release_checklist_v010"><strong>RELEASE_CHECKLIST_v0.1.0</strong><a class="headerlink" href="#release_checklist_v010" title="Permanent link">&para;</a></h1>
+<h2 id="1-preconditions"><strong>1. Preconditions</strong><a class="headerlink" href="#1-preconditions" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> All ambiguous words removed from <strong>CRF golden set</strong>  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> All tests passing locally (<code>make test</code>)  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Google Sheet URL + sheet name confirmed  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> No model files present in <code>src/zomi_syl/models/crf/</code>  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Version bumped to <code>0.1.1</code> in code (will finalize in step 8)</li>
+</ul>
+<hr />
+<h2 id="2-refresh-data"><strong>2. Refresh Data</strong><a class="headerlink" href="#2-refresh-data" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Fetch latest human syllabified dataset<br />
+  <div class="highlight"><pre><span></span><code>make get-zomi-syllabified-human URL=&lt;sheet-url&gt; SHEET=&lt;sheetname&gt;
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Clean dataset<br />
+  <div class="highlight"><pre><span></span><code>make clean-dataset
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm <code>training/data/zomi_only.tsv</code> exists and is non‑empty</li>
+</ul>
+<hr />
+<h2 id="3-train-crf-model"><strong>3. Train CRF Model</strong><a class="headerlink" href="#3-train-crf-model" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Train CRF<br />
+  <div class="highlight"><pre><span></span><code>make train-crf
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm output files in <code>training/model/crf/</code>:</li>
+<li><code>crf_syllabifier.joblib</code></li>
+<li><code>config.json</code></li>
+<li><code>stats.txt</code></li>
+<li><code>eval.txt</code></li>
+</ul>
+<hr />
+<h2 id="4-regenerate-golden-regression"><strong>4. Regenerate Golden Regression</strong><a class="headerlink" href="#4-regenerate-golden-regression" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Regenerate golden CRF outputs<br />
+  <div class="highlight"><pre><span></span><code>python scripts/get_golden_crf_frozen_data.py
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm:</li>
+<li><code>tests/golden/crf_golden.tsv</code> updated  </li>
+<li>No ambiguous words included  </li>
+<li>No multi‑variant words included  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Optional: inspect CRF predictions<br />
+  <div class="highlight"><pre><span></span><code>make check-crf WORDS=&quot;ama upa zawlai&quot;
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="5-freeze-package-model"><strong>5. Freeze + Package Model</strong><a class="headerlink" href="#5-freeze-package-model" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Run release freeze script<br />
+  <div class="highlight"><pre><span></span><code>./scripts/release_crf_freeze.sh --url &lt;sheet-url&gt; --sheet &lt;sheetname&gt;
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm:</li>
+<li>Wheel built in <code>dist/</code>  </li>
+<li>Temporary model removed from repo  </li>
+<li>No model files left in <code>src/zomi_syl/models/crf/</code></li>
+</ul>
+<hr />
+<h2 id="6-validate-wheel"><strong>6. Validate Wheel</strong><a class="headerlink" href="#6-validate-wheel" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Install wheel<br />
+  <div class="highlight"><pre><span></span><code>pip install --force-reinstall dist/zomi_syl-*.whl
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Run full test suite<br />
+  <div class="highlight"><pre><span></span><code>make test
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm:</li>
+<li>All tests pass  </li>
+<li>Golden regression matches  </li>
+<li>CRFBackend loads packaged model  </li>
+</ul>
+<hr />
+<h2 id="7-documentation-updates"><strong>7. Documentation Updates</strong><a class="headerlink" href="#7-documentation-updates" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Update <code>CHANGELOG.md</code> for v0.1.0  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Update README if needed:</li>
+<li>Installation  </li>
+<li>Example usage  </li>
+<li>Backend notes  </li>
+<li>Release notes  </li>
+</ul>
+<hr />
+<h2 id="8-versioning"><strong>8. Versioning</strong><a class="headerlink" href="#8-versioning" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Update version in:</li>
+<li><code>src/zomi_syl/version.py</code></li>
+<li><code>pyproject.toml</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Commit changes<br />
+  <div class="highlight"><pre><span></span><code>git commit -am &quot;Release v0.1.0&quot;
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="9-tag-push"><strong>9. Tag + Push</strong><a class="headerlink" href="#9-tag-push" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Tag release<br />
+  <div class="highlight"><pre><span></span><code>git tag v0.1.0
+git push --tags
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="10-publish-to-pypi"><strong>10. Publish to PyPI</strong><a class="headerlink" href="#10-publish-to-pypi" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Upload<br />
+  <div class="highlight"><pre><span></span><code>twine upload dist/*
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="11-postrelease-validation"><strong>11. Post‑Release Validation</strong><a class="headerlink" href="#11-postrelease-validation" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Install from PyPI in a clean environment  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Run:
+  <div class="highlight"><pre><span></span><code>python -m zomi_syl syllabify &quot;themthum&quot;
+</code></pre></div></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm correct output  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Confirm CRFBackend loads packaged model  </li>
+</ul>
+<hr />
+<h2 id="12-optional-enhancements"><strong>12. Optional Enhancements</strong><a class="headerlink" href="#12-optional-enhancements" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Add <strong>ambiguous‑word detector</strong>  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add <strong>golden‑set enforcement</strong>  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add <strong>CRF vs rule‑based diff tool</strong>  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add <strong>transformer backend regression tests</strong>  </li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

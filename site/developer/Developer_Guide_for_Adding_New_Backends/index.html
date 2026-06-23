@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/developer/Developer_Guide_for_Adding_New_Backends/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Developer Guide for Adding Backends - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../../user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../../user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Adding_New_Models_%28Backends%29/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../New_Backend_Template/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/developer/Developer_Guide_for_Adding_New_Backends.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#developer-guide-adding-new-backends-to-zomisyl" class="nav-link">Developer Guide: Adding New Backends to Zomi‑Syl</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-backend-requirements" class="nav-link">1. Backend Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-directory-structure" class="nav-link">2. Directory Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-implementing-a-backend-class" class="nav-link">3. Implementing a Backend Class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-add-a-loader-in-modelsloaderpy" class="nav-link">4. Add a Loader in models/loader.py</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-register-the-backend-in-coreengine" class="nav-link">5. Register the Backend in core.engine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-expose-it-in-the-public-api" class="nav-link">6. Expose It in the Public API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-test-the-backend" class="nav-link">7. Test the Backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-optional-add-a-model-folder" class="nav-link">8. Optional: Add a Model Folder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-optional-add-cli-support" class="nav-link">9. Optional: Add CLI Support</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-optional-add-to-model-registry" class="nav-link">10. Optional: Add to Model Registry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#summary" class="nav-link">Summary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="developer-guide-adding-new-backends-to-zomisyl">Developer Guide: Adding New Backends to Zomi‑Syl<a class="headerlink" href="#developer-guide-adding-new-backends-to-zomisyl" title="Permanent link">&para;</a></h1>
+<p>The <strong>clean, authoritative, production‑ready Developer Guide for Adding New Backends</strong> to Zomi‑Syl.  </p>
+<p>This guide explains how to implement, register, and expose a new syllabification backend in the Zomi‑Syl engine.<br />
+A <em>backend</em> is a pluggable module that implements the <code>BaseSyllabifier</code> interface and can be loaded via:</p>
+<div class="highlight"><pre><span></span><code><span class="n">be</span> <span class="o">=</span> <span class="n">zs</span><span class="o">.</span><span class="n">load_backend</span><span class="p">(</span><span class="s2">&quot;rule&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>or used indirectly through:</p>
+<div class="highlight"><pre><span></span><code><span class="n">zs</span><span class="o">.</span><span class="n">syllabify</span><span class="p">(</span><span class="s2">&quot;itna&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;rule&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="1-backend-requirements">1. Backend Requirements<a class="headerlink" href="#1-backend-requirements" title="Permanent link">&para;</a></h2>
+<p>Every backend <strong>must</strong>:</p>
+<ul>
+<li>implement the <code>BaseSyllabifier</code> abstract class  </li>
+<li>provide <code>predict()</code> and <code>predict_batch()</code>  </li>
+<li>provide <code>get_metadata()</code> returning UMS‑compatible metadata  </li>
+<li>live under <code>zomi_syl/backends/</code>  </li>
+<li>be loadable via <code>core.engine._load_backend(name)</code>  </li>
+<li>be registered in the backend registry  </li>
+</ul>
+<hr />
+<h2 id="2-directory-structure">2. Directory Structure<a class="headerlink" href="#2-directory-structure" title="Permanent link">&para;</a></h2>
+<p>Place backend here:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/
+  backends/
+    my_backend.py
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/backends/fst_backend.py
+</code></pre></div>
+<hr />
+<h2 id="3-implementing-a-backend-class">3. Implementing a Backend Class<a class="headerlink" href="#3-implementing-a-backend-class" title="Permanent link">&para;</a></h2>
+<p>Every backend must subclass <code>BaseSyllabifier</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zomi_syl.core.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSyllabifier</span><span class="p">,</span> <span class="n">Prediction</span><span class="p">,</span> <span class="n">Boundary</span><span class="p">,</span> <span class="n">ConfidenceScore</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyBackend</span><span class="p">(</span><span class="n">BaseSyllabifier</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model_dir</span><span class="p">)</span>
+        <span class="c1"># load model files, rules, weights, etc.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Prediction</span><span class="p">:</span>
+        <span class="c1"># run model</span>
+        <span class="n">sylls</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">boundaries</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">confidence</span> <span class="o">=</span> <span class="o">...</span>
+
+        <span class="k">return</span> <span class="n">Prediction</span><span class="p">(</span>
+            <span class="n">syllables</span><span class="o">=</span><span class="n">sylls</span><span class="p">,</span>
+            <span class="n">boundaries</span><span class="o">=</span><span class="n">boundaries</span><span class="p">,</span>
+            <span class="n">confidence</span><span class="o">=</span><span class="n">confidence</span><span class="p">,</span>
+            <span class="n">raw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;backend&quot;</span><span class="p">:</span> <span class="s2">&quot;my-backend&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_ruleset</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;backend_type&quot;</span><span class="p">:</span> <span class="s2">&quot;my-backend&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;supports_confidence&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;supports_batch&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;supports_gpu&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;ums&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_ums</span><span class="p">(),</span>
+        <span class="p">}</span>
+</code></pre></div>
+<h3 id="required-fields-in-prediction">Required fields in <code>Prediction</code>:<a class="headerlink" href="#required-fields-in-prediction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>syllables</code>: list of strings  </li>
+<li><code>boundaries</code>: list of <code>Boundary(index, is_boundary=True)</code>  </li>
+<li><code>confidence</code>: list of <code>ConfidenceScore(index, score)</code>  </li>
+<li><code>raw</code>: backend‑specific debug info  </li>
+</ul>
+<hr />
+<h2 id="4-add-a-loader-in-modelsloaderpy">4. Add a Loader in <code>models/loader.py</code><a class="headerlink" href="#4-add-a-loader-in-modelsloaderpy" title="Permanent link">&para;</a></h2>
+<p>Each backend must be loadable by name.</p>
+<p>In:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/models/loader.py
+</code></pre></div>
+<p>Add:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zomi_syl.backends.my_backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyBackend</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib.resources</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;my-backend&quot;</span><span class="p">:</span>
+        <span class="n">model_dir</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;zomi_syl.models.my_backend&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">MyBackend</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">model_dir</span><span class="p">))</span>
+
+    <span class="c1"># existing:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;rule&quot;</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;crf&quot;</span><span class="p">:</span>
+        <span class="o">...</span>
+
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown backend: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="5-register-the-backend-in-coreengine">5. Register the Backend in <code>core.engine</code><a class="headerlink" href="#5-register-the-backend-in-coreengine" title="Permanent link">&para;</a></h2>
+<p>In:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/core/engine.py
+</code></pre></div>
+<p>Add backend to the registry:</p>
+<div class="highlight"><pre><span></span><code><span class="n">_BACKEND_LOADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="n">_load_rule_backend</span><span class="p">,</span>
+    <span class="s2">&quot;crf&quot;</span><span class="p">:</span> <span class="n">_load_crf_backend</span><span class="p">,</span>
+    <span class="s2">&quot;my-backend&quot;</span><span class="p">:</span> <span class="n">_load_my_backend</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>And implement:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_load_my_backend</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">load_backend</span><span class="p">(</span><span class="s2">&quot;my-backend&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="6-expose-it-in-the-public-api">6. Expose It in the Public API<a class="headerlink" href="#6-expose-it-in-the-public-api" title="Permanent link">&para;</a></h2>
+<p>In:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/__init__.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">.core.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">_load_backend</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_load_backend</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+<p>This automatically exposes new backend:</p>
+<div class="highlight"><pre><span></span><code><span class="n">be</span> <span class="o">=</span> <span class="n">zs</span><span class="o">.</span><span class="n">load_backend</span><span class="p">(</span><span class="s2">&quot;my-backend&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="7-test-the-backend">7. Test the Backend<a class="headerlink" href="#7-test-the-backend" title="Permanent link">&para;</a></h2>
+<h3 id="load-it">Load it:<a class="headerlink" href="#load-it" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">be</span> <span class="o">=</span> <span class="n">zs</span><span class="o">.</span><span class="n">load_backend</span><span class="p">(</span><span class="s2">&quot;my-backend&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="run-prediction">Run prediction:<a class="headerlink" href="#run-prediction" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">be</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">&quot;itna&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="check-metadata">Check metadata:<a class="headerlink" href="#check-metadata" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">be</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="check-ums">Check UMS:<a class="headerlink" href="#check-ums" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">be</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">()[</span><span class="s2">&quot;ums&quot;</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h2 id="8-optional-add-a-model-folder">8. Optional: Add a Model Folder<a class="headerlink" href="#8-optional-add-a-model-folder" title="Permanent link">&para;</a></h2>
+<p>If backend needs model files:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/models/my_backend/
+    config.json
+    weights.bin
+    vocab.txt
+</code></pre></div>
+<p>Access them via:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">importlib.resources</span>
+<span class="n">model_dir</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;zomi_syl.models.my_backend&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="9-optional-add-cli-support">9. Optional: Add CLI Support<a class="headerlink" href="#9-optional-add-cli-support" title="Permanent link">&para;</a></h2>
+<p>In:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/cli.py
+</code></pre></div>
+<p>Add:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--backend&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s2">&quot;rule&quot;</span><span class="p">,</span> <span class="s2">&quot;crf&quot;</span><span class="p">,</span> <span class="s2">&quot;my-backend&quot;</span><span class="p">]))</span>
+</code></pre></div>
+<hr />
+<h2 id="10-optional-add-to-model-registry">10. Optional: Add to Model Registry<a class="headerlink" href="#10-optional-add-to-model-registry" title="Permanent link">&para;</a></h2>
+<p>If backend supports multiple trained models:</p>
+<div class="highlight"><pre><span></span><code>zomi_syl/registry/models.py
+</code></pre></div>
+<p>Add entries like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-backend-default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;backend_type&quot;</span><span class="p">:</span> <span class="s2">&quot;my-backend&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<p>To add a new backend:</p>
+<ol>
+<li><strong>Create backend class</strong> in <code>backends/</code>  </li>
+<li><strong>Implement BaseSyllabifier</strong>  </li>
+<li><strong>Add loader</strong> in <code>models/loader.py</code>  </li>
+<li><strong>Register backend</strong> in <code>core.engine</code>  </li>
+<li><strong>Expose via public API</strong> (<code>load_backend</code>)  </li>
+<li><strong>Add model files</strong> (optional)  </li>
+<li><strong>Add CLI + registry entries</strong> (optional)  </li>
+</ol>
+<p>The architecture is now fully extensible — adding CRF, FST, Transformer, or hybrid backends is straightforward.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

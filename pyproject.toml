@@ -5,8 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "zomi-syl"
 version = "0.1.0"
-description = "A modular, dialect-aware Zomi syllabification library with rule-based, CRF, FST, and neural backends."
-readme = "README.md"
+description = "A modular, dialect-aware Zomi syllabification library with rule-based and CRF backends."
+readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
 
@@ -15,11 +15,11 @@ authors = [
 ]
 
 keywords = [
-    "zomi", "syllabification", "nlp", "linguistics",
-    "fst", "crf", "bilstm", "transformer",
-    "dialect", "phonology", "tedim", "paite", "vaiphei", "zo/zou",
-    "thado/thadou", "simte", "gangte", "kom", "thangkhal", "gangte",
-    "zomi-community", "india-zomi", "myanmar-zomi"
+    "bilstm", "crf", "dialect", "fst", "gangte", 
+    "india-zomi", "kom", "linguistics", "myanmar-zomi", 
+    "nlp", "paite", "phonology", "simte", "syllabification", 
+    "tedim", "thado/thadou", "thangkhal", "transformer", 
+    "vaiphei", "zo/zou", "zomi", "zomi-community"
 ]
 
 classifiers = [
@@ -28,7 +28,10 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Text Processing :: Linguistic",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -78,6 +81,7 @@ Homepage = "https://github.com/ZomiLearner/zomi-syl"
 Documentation = "https://ZomiLearner.github.io/zomi-syl"
 Source = "https://github.com/ZomiLearner/zomi-syl"
 Issues = "https://github.com/ZomiLearner/zomi-syl/issues"
+Changelog = "https://ZomiLearner.github.io/zomi-syl/changelog/"
 
 [project.scripts]
 zomi-syl = "zomi_syl.cli:main"
@@ -90,15 +94,20 @@ where = ["src"]
 include = ["zomi_syl*"]
 exclude = ["training*", "scripts*", "tests*", "notebooks*"]
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.package-data]
 "zomi_syl" = [
-    "profiles/*/*.json",
     "resources/*.json",
-    "models/*.joblib",
-    "models/*.json",
-    "models/*.txt",
+    "models/**/*.joblib",
+    "models/**/*.json",
+    "models/**/*.txt",
     "config/*.toml",
-    "config/*.json"
+    "config/*.json",
+    "profiles/*/*.json",
+    "profiles/*/*.txt",
+    "rule_based/*.py"
 ]
 
 [tool.ruff]

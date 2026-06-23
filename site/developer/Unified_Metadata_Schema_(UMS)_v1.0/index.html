@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/developer/Unified_Metadata_Schema_%28UMS%29_v1.0/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Unified Metadata Schema (UMS) - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../../user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../../user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Recommended_Folder_Structure/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../UMS_Implementation/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/developer/Unified_Metadata_Schema_(UMS)_v1.0.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#unified-metadata-schema-ums-v10" class="nav-link">⭐ Unified Metadata Schema (UMS) v1.0</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#how-each-backend-would-populate-it" class="nav-link">⭐ How each backend would populate it</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#rule-backend" class="nav-link">✔ Rule backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#crf-backend" class="nav-link">✔ CRF backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#transformer-backend" class="nav-link">✔ Transformer backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#fst-backend" class="nav-link">✔ FST backend</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#how-include_metadata-becomes-meaningful" class="nav-link">⭐ How include_metadata becomes meaningful</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#implementation-plan-clean-and-incremental" class="nav-link">⭐ Implementation plan (clean and incremental)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#example-final-output-crf-with-metadata" class="nav-link">⭐ Example final output (CRF, with metadata)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="unified-metadata-schema-ums-v10">⭐ Unified Metadata Schema (UMS) v1.0<a class="headerlink" href="#unified-metadata-schema-ums-v10" title="Permanent link">&para;</a></h1>
+<p>A <strong>unified, backend‑agnostic metadata schema</strong> so every backend (rule, CRF, FST, Transformer, BiLSTM, etc.) exposes metadata in a <strong>consistent, predictable, machine‑readable</strong> way.</p>
+<p>A single, stable structure that every backend must follow.</p>
+<p>Right now:</p>
+<ul>
+<li><strong>rule backend</strong> dumps a huge ruleset directly into <code>raw</code></li>
+<li><strong>CRF backend</strong> exposes only <code>backend</code> + <code>tags</code></li>
+<li><strong>FST / Transformer</strong> will eventually need structured metadata</li>
+<li><code>include_metadata</code> is effectively a no‑op because backends don’t follow a shared contract</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">me</span><span class="kc">ta</span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;backend&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;crf&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;rule&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;transformer&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;fst&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;statistical&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;rule-based&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;neural&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;hybrid&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;crf-tedim-v1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zomi&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;dialect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tedim&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;trained_on&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dataset1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;dataset2&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;created_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-01&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;updated_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-06-01&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;tagset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;num_features&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;feature_templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;ruleset_summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">rule</span><span class="w"> </span><span class="err">backe</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">        </span><span class="nt">&quot;fst_states&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">           </span><span class="err">#</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">FST</span><span class="w"> </span><span class="err">backe</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">        </span><span class="nt">&quot;transformer_layers&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">       </span><span class="err">#</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">transf</span><span class="err">ormer</span><span class="w"> </span><span class="err">backe</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;latency_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.42</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;confidence_method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;marginals&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;rule-default&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;attention&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpu&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;gpu&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This schema is:</p>
+<ul>
+<li><strong>backend‑agnostic</strong></li>
+<li><strong>extensible</strong></li>
+<li><strong>compact</strong></li>
+<li><strong>predictable</strong></li>
+<li><strong>safe to serialize</strong></li>
+<li><strong>easy to test</strong></li>
+</ul>
+<hr />
+<h1 id="how-each-backend-would-populate-it">⭐ How each backend would populate it<a class="headerlink" href="#how-each-backend-would-populate-it" title="Permanent link">&para;</a></h1>
+<h2 id="rule-backend">✔ Rule backend<a class="headerlink" href="#rule-backend" title="Permanent link">&para;</a></h2>
+<p>Instead of dumping the entire ruleset into <code>raw</code>, it would expose:</p>
+<div class="highlight"><pre><span></span><code><span class="err">me</span><span class="kc">ta</span><span class="err">da</span><span class="kc">ta</span><span class="err">.</span><span class="kc">features</span><span class="err">.rulese</span><span class="kc">t</span><span class="err">_summary</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;num_onsets&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;num_nuclei&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;num_codas&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;num_rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The full ruleset can still be available under:</p>
+<div class="highlight"><pre><span></span><code>metadata.features.ruleset_full
+</code></pre></div>
+<p>but <strong>only when <code>include_metadata=True</code></strong>.</p>
+<hr />
+<h2 id="crf-backend">✔ CRF backend<a class="headerlink" href="#crf-backend" title="Permanent link">&para;</a></h2>
+<p>CRF finally gets meaningful metadata:</p>
+<div class="highlight"><pre><span></span><code>metadata.features = {
+    &quot;tagset&quot;: [&quot;B&quot;, &quot;I&quot;],
+    &quot;num_features&quot;: 128,
+    &quot;feature_templates&quot;: [&quot;prev_tag&quot;, &quot;next_char&quot;, ...]
+}
+</code></pre></div>
+<hr />
+<h2 id="transformer-backend">✔ Transformer backend<a class="headerlink" href="#transformer-backend" title="Permanent link">&para;</a></h2>
+<p>Transformers can expose:</p>
+<div class="highlight"><pre><span></span><code>metadata.features = {
+    &quot;transformer_layers&quot;: 6,
+    &quot;hidden_size&quot;: 256,
+    &quot;attention_heads&quot;: 8
+}
+</code></pre></div>
+<hr />
+<h2 id="fst-backend">✔ FST backend<a class="headerlink" href="#fst-backend" title="Permanent link">&para;</a></h2>
+<p>Finite‑state models can expose:</p>
+<div class="highlight"><pre><span></span><code>metadata.features = {
+    &quot;fst_states&quot;: 1234,
+    &quot;fst_transitions&quot;: 5678
+}
+</code></pre></div>
+<hr />
+<h1 id="how-include_metadata-becomes-meaningful">⭐ How <code>include_metadata</code> becomes meaningful<a class="headerlink" href="#how-include_metadata-becomes-meaningful" title="Permanent link">&para;</a></h1>
+<p>Right now, <code>include_metadata</code> does nothing because:</p>
+<ul>
+<li>rule backend always dumps metadata</li>
+<li>CRF backend has no metadata to dump</li>
+</ul>
+<p>With UMS:</p>
+<h3 id="include_metadatafalse"><code>include_metadata=False</code><a class="headerlink" href="#include_metadatafalse" title="Permanent link">&para;</a></h3>
+<p>Return only:</p>
+<div class="highlight"><pre><span></span><code>raw = {
+    &quot;backend&quot;: &quot;crf&quot;,
+    &quot;tags&quot;: [...]
+}
+</code></pre></div>
+<h3 id="include_metadatatrue"><code>include_metadata=True</code><a class="headerlink" href="#include_metadatatrue" title="Permanent link">&para;</a></h3>
+<p>Return:</p>
+<div class="highlight"><pre><span></span><code>raw = {
+    &quot;backend&quot;: &quot;crf&quot;,
+    &quot;tags&quot;: [...],
+    &quot;metadata&quot;: {... UMS ...}
+}
+</code></pre></div>
+<p>Now the flag <strong>actually matters</strong>.</p>
+<hr />
+<h1 id="implementation-plan-clean-and-incremental">⭐ Implementation plan (clean and incremental)<a class="headerlink" href="#implementation-plan-clean-and-incremental" title="Permanent link">&para;</a></h1>
+<h3 id="step-1-add-a-get_metadata-contract-to-all-backends">Step 1 — Add a <code>get_metadata()</code> contract to all backends<a class="headerlink" href="#step-1-add-a-get_metadata-contract-to-all-backends" title="Permanent link">&para;</a></h3>
+<p>Each backend returns a dict matching UMS.</p>
+<h3 id="step-2-modify-predict">Step 2 — Modify <code>predict()</code><a class="headerlink" href="#step-2-modify-predict" title="Permanent link">&para;</a></h3>
+<p>Only attach metadata when <code>include_metadata=True</code>.</p>
+<h3 id="step-3-deprecate-dumping-full-rule-ruleset-into-raw">Step 3 — Deprecate dumping full rule ruleset into <code>raw</code><a class="headerlink" href="#step-3-deprecate-dumping-full-rule-ruleset-into-raw" title="Permanent link">&para;</a></h3>
+<p>Move it into:</p>
+<div class="highlight"><pre><span></span><code>metadata.features.ruleset_full
+</code></pre></div>
+<h3 id="step-4-add-unit-tests">Step 4 — Add unit tests<a class="headerlink" href="#step-4-add-unit-tests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>metadata present only when requested  </li>
+<li>metadata schema matches UMS  </li>
+<li>metadata keys consistent across backends  </li>
+</ul>
+<hr />
+<h1 id="example-final-output-crf-with-metadata">⭐ Example final output (CRF, with metadata)<a class="headerlink" href="#example-final-output-crf-with-metadata" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>Prediction(
+    syllables=[&#39;it&#39;, &#39;na&#39;],
+    boundaries=[...],
+    confidence=[...],
+    raw={
+        &quot;backend&quot;: &quot;crf&quot;,
+        &quot;tags&quot;: [&quot;B&quot;, &quot;I&quot;, &quot;B&quot;, &quot;I&quot;],
+        &quot;metadata&quot;: {
+            &quot;backend&quot;: {
+                &quot;name&quot;: &quot;crf&quot;,
+                &quot;version&quot;: &quot;1.0.0&quot;,
+                &quot;type&quot;: &quot;statistical&quot;
+            },
+            &quot;model&quot;: {
+                &quot;id&quot;: &quot;crf-tedim-v1&quot;,
+                &quot;language&quot;: &quot;zomi&quot;,
+                &quot;dialect&quot;: &quot;tedim&quot;
+            },
+            &quot;features&quot;: {
+                &quot;tagset&quot;: [&quot;B&quot;, &quot;I&quot;],
+                &quot;num_features&quot;: 128
+            },
+            &quot;runtime&quot;: {
+                &quot;latency_ms&quot;: 0.42,
+                &quot;confidence_method&quot;: &quot;marginals&quot;,
+                &quot;device&quot;: &quot;cpu&quot;
+            }
+        }
+    }
+)
+</code></pre></div>
+<p>This is clean, structured, and future‑proof.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

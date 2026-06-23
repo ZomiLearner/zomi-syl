@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/user/cli_reference/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>CLI Reference - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../quick_start/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../dialect_profiles/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/user/cli_reference.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#cli-reference" class="nav-link">CLI Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#command-overview" class="nav-link">📌 Command Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#core-commands" class="nav-link">🧠 Core Commands</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#syllabify" class="nav-link">syllabify</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#analyze" class="nav-link">analyze</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#batch" class="nav-link">batch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#benchmarking-evaluation" class="nav-link">📊 Benchmarking &amp; Evaluation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#benchmark" class="nav-link">benchmark</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#backend-management-models-group" class="nav-link">🧩 Backend Management (models group)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#models-list" class="nav-link">models list</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#models-info" class="nav-link">models info</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#models-benchmark" class="nav-link">models benchmark</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#models-compare" class="nav-link">models compare</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#models-doctor" class="nav-link">models doctor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#dialect-profiles-profiles-group" class="nav-link">🌏 Dialect Profiles (profiles group)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#profiles-list" class="nav-link">profiles list</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiles-info" class="nav-link">profiles info</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiles-validate" class="nav-link">profiles validate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#dataset-management-datasets-group" class="nav-link">📁 Dataset Management (datasets group)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#datasets-list" class="nav-link">datasets list</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#datasets-download" class="nav-link">datasets download</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#datasets-validate" class="nav-link">datasets validate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#configuration-config-group" class="nav-link">⚙️ Configuration (config group)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#config-show" class="nav-link">config show</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#config-path" class="nav-link">config path</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#config-validate" class="nav-link">config validate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#config-set" class="nav-link">config set</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#cache-management-cache-group" class="nav-link">🧹 Cache Management (cache group)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#cache-info" class="nav-link">cache info</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cache-clear" class="nav-link">cache clear</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cache-remove" class="nav-link">cache remove</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#utility-commands" class="nav-link">🔧 Utility Commands</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#validate" class="nav-link">validate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#download" class="nav-link">download</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#version" class="nav-link">version</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="cli-reference"><strong>CLI Reference</strong><a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
+<p>The <code>zomi-syl</code> command‑line interface provides tools for syllabification, analysis, batch processing, benchmarking, backend management, diagnostics, configuration, and dataset handling.</p>
+<p>This page documents every top‑level command and subcommand available in <strong>v0.1.0</strong>.</p>
+<hr />
+<h1 id="command-overview"><strong>📌 Command Overview</strong><a class="headerlink" href="#command-overview" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>zomi-syl
+│
+├──<span class="w"> </span>syllabify
+├──<span class="w"> </span>analyze
+├──<span class="w"> </span>batch
+├──<span class="w"> </span>benchmark
+│
+├──<span class="w"> </span>profiles<span class="w"> </span>list<span class="p">|</span>info<span class="p">|</span>validate
+├──<span class="w"> </span>datasets<span class="w"> </span>list<span class="p">|</span>download<span class="p">|</span>validate
+│
+├──<span class="w"> </span>config<span class="w"> </span>show<span class="p">|</span>path<span class="p">|</span>validate<span class="p">|</span><span class="nb">set</span>
+├──<span class="w"> </span>cache<span class="w"> </span>info<span class="p">|</span>clear<span class="p">|</span>remove
+│
+├──<span class="w"> </span>validate
+├──<span class="w"> </span>download
+├──<span class="w"> </span>version
+│
+└──<span class="w"> </span>models
+<span class="w">    </span>├──<span class="w"> </span>list
+<span class="w">    </span>├──<span class="w"> </span>info
+<span class="w">    </span>├──<span class="w"> </span>benchmark
+<span class="w">    </span>├──<span class="w"> </span>compare
+<span class="w">    </span>└──<span class="w"> </span>doctor
+</code></pre></div>
+<hr />
+<h1 id="core-commands"><strong>🧠 Core Commands</strong><a class="headerlink" href="#core-commands" title="Permanent link">&para;</a></h1>
+<h2 id="syllabify"><strong>syllabify</strong><a class="headerlink" href="#syllabify" title="Permanent link">&para;</a></h2>
+<p>Syllabify a single word.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl syllabify WORD [--backend BACKEND] [--profile PROFILE] [--json] [--compact]
+</code></pre></div>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl syllabify kamsang
+zomi-syl syllabify kamsang --backend crf
+zomi-syl syllabify kamsang --profile tedim --json
+</code></pre></div>
+<hr />
+<h2 id="analyze"><strong>analyze</strong><a class="headerlink" href="#analyze" title="Permanent link">&para;</a></h2>
+<p>Return a detailed analysis of a word, including:</p>
+<ul>
+<li>syllables  </li>
+<li>boundaries  </li>
+<li>backend used  </li>
+<li>confidence (CRF)  </li>
+</ul>
+<div class="highlight"><pre><span></span><code>zomi-syl analyze WORD [--backend BACKEND] [--profile PROFILE] [--json]
+</code></pre></div>
+<hr />
+<h2 id="batch"><strong>batch</strong><a class="headerlink" href="#batch" title="Permanent link">&para;</a></h2>
+<p>Batch syllabify a file of words.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl batch FILE [--output PATH] [--format text|jsonl|csv] [--workers N] [--progress]
+</code></pre></div>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>zomi-syl batch words.txt --output out.txt
+zomi-syl batch words.txt --format jsonl --output out.jsonl
+</code></pre></div>
+<hr />
+<h1 id="benchmarking-evaluation"><strong>📊 Benchmarking &amp; Evaluation</strong><a class="headerlink" href="#benchmarking-evaluation" title="Permanent link">&para;</a></h1>
+<h2 id="benchmark"><strong>benchmark</strong><a class="headerlink" href="#benchmark" title="Permanent link">&para;</a></h2>
+<p>Legacy top‑level benchmark command (still supported).</p>
+<div class="highlight"><pre><span></span><code>zomi-syl benchmark [--backend BACKEND] [--dialect DIALECT] [--dataset DATASET]
+</code></pre></div>
+<hr />
+<h1 id="backend-management-models-group"><strong>🧩 Backend Management (<code>models</code> group)</strong><a class="headerlink" href="#backend-management-models-group" title="Permanent link">&para;</a></h1>
+<h2 id="models-list"><strong>models list</strong><a class="headerlink" href="#models-list" title="Permanent link">&para;</a></h2>
+<p>List all available backends.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl models list
+</code></pre></div>
+<hr />
+<h2 id="models-info"><strong>models info</strong><a class="headerlink" href="#models-info" title="Permanent link">&para;</a></h2>
+<p>Show metadata for a backend.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl models info BACKEND
+</code></pre></div>
+<hr />
+<h2 id="models-benchmark"><strong>models benchmark</strong><a class="headerlink" href="#models-benchmark" title="Permanent link">&para;</a></h2>
+<p>Benchmark a single backend.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl models benchmark BACKEND [--dialect DIALECT] [--json]
+</code></pre></div>
+<hr />
+<h2 id="models-compare"><strong>models compare</strong><a class="headerlink" href="#models-compare" title="Permanent link">&para;</a></h2>
+<p>Compare multiple backends or all backends.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl models compare BACKEND BACKEND...
+zomi-syl models compare --all
+</code></pre></div>
+<hr />
+<h2 id="models-doctor"><strong>models doctor</strong><a class="headerlink" href="#models-doctor" title="Permanent link">&para;</a></h2>
+<p>Run a full backend diagnostic:</p>
+<ul>
+<li>registry validation  </li>
+<li>metadata schema check  </li>
+<li>model file presence  </li>
+<li>load test  </li>
+<li>prediction test  </li>
+</ul>
+<div class="highlight"><pre><span></span><code>zomi-syl models doctor [--verbose]
+</code></pre></div>
+<hr />
+<h1 id="dialect-profiles-profiles-group"><strong>🌏 Dialect Profiles (<code>profiles</code> group)</strong><a class="headerlink" href="#dialect-profiles-profiles-group" title="Permanent link">&para;</a></h1>
+<h2 id="profiles-list"><strong>profiles list</strong><a class="headerlink" href="#profiles-list" title="Permanent link">&para;</a></h2>
+<p>List all available dialect profiles.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl profiles list
+</code></pre></div>
+<hr />
+<h2 id="profiles-info"><strong>profiles info</strong><a class="headerlink" href="#profiles-info" title="Permanent link">&para;</a></h2>
+<p>Show profile metadata.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl profiles info PROFILE
+</code></pre></div>
+<hr />
+<h2 id="profiles-validate"><strong>profiles validate</strong><a class="headerlink" href="#profiles-validate" title="Permanent link">&para;</a></h2>
+<p>Validate a profile’s structure and phonotactic files.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl profiles validate PROFILE
+</code></pre></div>
+<hr />
+<h1 id="dataset-management-datasets-group"><strong>📁 Dataset Management (<code>datasets</code> group)</strong><a class="headerlink" href="#dataset-management-datasets-group" title="Permanent link">&para;</a></h1>
+<h2 id="datasets-list"><strong>datasets list</strong><a class="headerlink" href="#datasets-list" title="Permanent link">&para;</a></h2>
+<p>List available datasets.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl datasets list
+</code></pre></div>
+<hr />
+<h2 id="datasets-download"><strong>datasets download</strong><a class="headerlink" href="#datasets-download" title="Permanent link">&para;</a></h2>
+<p>Download a dataset (if remote sources are configured).</p>
+<div class="highlight"><pre><span></span><code>zomi-syl datasets download NAME
+</code></pre></div>
+<hr />
+<h2 id="datasets-validate"><strong>datasets validate</strong><a class="headerlink" href="#datasets-validate" title="Permanent link">&para;</a></h2>
+<p>Validate dataset format and schema.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl datasets validate NAME
+</code></pre></div>
+<hr />
+<h1 id="configuration-config-group"><strong>⚙️ Configuration (<code>config</code> group)</strong><a class="headerlink" href="#configuration-config-group" title="Permanent link">&para;</a></h1>
+<h2 id="config-show"><strong>config show</strong><a class="headerlink" href="#config-show" title="Permanent link">&para;</a></h2>
+<p>Show the active configuration.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl config show
+</code></pre></div>
+<hr />
+<h2 id="config-path"><strong>config path</strong><a class="headerlink" href="#config-path" title="Permanent link">&para;</a></h2>
+<p>Show the path to the config file.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl config path
+</code></pre></div>
+<hr />
+<h2 id="config-validate"><strong>config validate</strong><a class="headerlink" href="#config-validate" title="Permanent link">&para;</a></h2>
+<p>Validate the configuration file.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl config validate
+</code></pre></div>
+<hr />
+<h2 id="config-set"><strong>config set</strong><a class="headerlink" href="#config-set" title="Permanent link">&para;</a></h2>
+<p>Set a configuration key.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl config set KEY VALUE
+</code></pre></div>
+<hr />
+<h1 id="cache-management-cache-group"><strong>🧹 Cache Management (<code>cache</code> group)</strong><a class="headerlink" href="#cache-management-cache-group" title="Permanent link">&para;</a></h1>
+<h2 id="cache-info"><strong>cache info</strong><a class="headerlink" href="#cache-info" title="Permanent link">&para;</a></h2>
+<p>Show cache status.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl cache info
+</code></pre></div>
+<hr />
+<h2 id="cache-clear"><strong>cache clear</strong><a class="headerlink" href="#cache-clear" title="Permanent link">&para;</a></h2>
+<p>Clear all cache entries.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl cache clear
+</code></pre></div>
+<hr />
+<h2 id="cache-remove"><strong>cache remove</strong><a class="headerlink" href="#cache-remove" title="Permanent link">&para;</a></h2>
+<p>Remove a specific cached model.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl cache remove NAME
+</code></pre></div>
+<hr />
+<h1 id="utility-commands"><strong>🔧 Utility Commands</strong><a class="headerlink" href="#utility-commands" title="Permanent link">&para;</a></h1>
+<h2 id="validate"><strong>validate</strong><a class="headerlink" href="#validate" title="Permanent link">&para;</a></h2>
+<p>Validate resources (placeholder for future expansion).</p>
+<div class="highlight"><pre><span></span><code>zomi-syl validate [TARGET]
+</code></pre></div>
+<hr />
+<h2 id="download"><strong>download</strong><a class="headerlink" href="#download" title="Permanent link">&para;</a></h2>
+<p>Download a model (if remote sources are configured).</p>
+<div class="highlight"><pre><span></span><code>zomi-syl download NAME
+</code></pre></div>
+<hr />
+<h2 id="version"><strong>version</strong><a class="headerlink" href="#version" title="Permanent link">&para;</a></h2>
+<p>Show the installed version.</p>
+<div class="highlight"><pre><span></span><code>zomi-syl version
+</code></pre></div>
+<hr />
+<h1 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Install the library: <strong>Installation</strong>  </li>
+<li>Try the API: <strong>Quick Start</strong>  </li>
+<li>Explore dialect profiles: <strong>Dialect Profiles</strong>  </li>
+<li>Benchmark backends: <strong>Benchmarking Guide</strong>  </li>
+<li>Add your own backend: <strong>Adding New Backends</strong>  </li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

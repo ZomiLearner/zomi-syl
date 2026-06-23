@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zomi‑Syl Contributors">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/v0.1/guides/Infra_Maintainers_Guide/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Infra Maintainers Guide - Zomi‑Syl Documentation</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Zomi‑Syl Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">User Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../user/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../user/quick_start/" class="dropdown-item">Quick Start</a>
+</li>
+                                    
+<li>
+    <a href="../../user/cli_reference/" class="dropdown-item">CLI Reference</a>
+</li>
+                                    
+<li>
+    <a href="../../user/dialect_profiles/" class="dropdown-item">Dialect Profiles</a>
+</li>
+                                    
+<li>
+    <a href="../../user/benchmarking/" class="dropdown-item">Benchmarking</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Developer Guide</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../developer/Adding_New_Models_%28Backends%29/" class="dropdown-item">Adding New Models</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Developer_Guide_for_Adding_New_Backends/" class="dropdown-item">Developer Guide for Adding Backends</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/New_Backend_Template/" class="dropdown-item">New Backend Template</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Public_Backend_Loader/" class="dropdown-item">Backend Loader</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Recommended_Folder_Structure/" class="dropdown-item">Recommended Folder Structure</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/Unified_Metadata_Schema_%28UMS%29_v1.0/" class="dropdown-item">Unified Metadata Schema (UMS)</a>
+</li>
+                                    
+<li>
+    <a href="../../developer/UMS_Implementation/" class="dropdown-item">UMS Implementation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">CRF Training</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Adding_Tagset_and_Feature_Template_to_crf/" class="dropdown-item">Tagset & Feature Template</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test Templates</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../developer/Template_Test_Backend/" class="dropdown-item">Backend Test Template</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Rule_Backend/" class="dropdown-item">Test Rule Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CRF_Backend/" class="dropdown-item">Test CRF Backend</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_CLI_Commands/" class="dropdown-item">Test CLI Commands</a>
+</li>
+            
+<li>
+    <a href="../../developer/Test_Syllabify_Integration/" class="dropdown-item">Integration Tests</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../developer/CHANGELOG_template/" class="dropdown-item">Changelog Template</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Reference</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/Top_Level_Commands_v0.1.0/" class="dropdown-item">Top‑Level Commands</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/BI-based_Zomi_Syllabification/" class="dropdown-item">BI‑based Syllabification</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/Backends_Tagset_Info/" class="dropdown-item">Backends Tagset Info</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Infra Maintainers Guide</a>
+</li>
+                                    
+<li>
+    <a href="../RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Changelog</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="dropdown-item">v0.1.0 Release Notes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">About</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/About_Zomi-Syl/" class="dropdown-item">About Zomi-Syl</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../Linguistic_Contributors_Guide/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../RELEASE_CHECKLIST/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/guides/Infra_Maintainers_Guide.md" class="nav-link">Edit on zomi-syl
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#contributingmd-infra-maintainers-guide" class="nav-link">CONTRIBUTING.md — Infra Maintainers Guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#purpose" class="nav-link">🔧 Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#infrarelevant-repository-structure" class="nav-link">📁 Infra‑Relevant Repository Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#core-responsibilities" class="nav-link">🧱 Core Responsibilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing-requirements" class="nav-link">🧪 Testing Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#what-infra-maintainers-must-never-do" class="nav-link">🚫 What Infra Maintainers Must Never Do</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#release-responsibilities" class="nav-link">📦 Release Responsibilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-propose-infra-changes" class="nav-link">🧭 How to Propose Infra Changes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#thank-you" class="nav-link">🤝 Thank You</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="contributingmd-infra-maintainers-guide"><strong>CONTRIBUTING.md — Infra Maintainers Guide</strong><a class="headerlink" href="#contributingmd-infra-maintainers-guide" title="Permanent link">&para;</a></h1>
+<h2 id="purpose"><strong>🔧 Purpose</strong><a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>This document defines the responsibilities, workflows, and rules for <strong>infra maintainers</strong> of the Zomi‑Syl project.<br />
+Infra maintainers are responsible for:</p>
+<ul>
+<li>reproducible CRF training  </li>
+<li>golden regression stability  </li>
+<li>model freeze + packaging  </li>
+<li>Makefile orchestration  </li>
+<li>dataset ingestion + cleaning  </li>
+<li>release engineering  </li>
+<li>CI stability  </li>
+<li>preventing model drift  </li>
+</ul>
+<p>This guide ensures the entire pipeline remains deterministic and auditable.</p>
+<hr />
+<h2 id="infrarelevant-repository-structure"><strong>📁 Infra‑Relevant Repository Structure</strong><a class="headerlink" href="#infrarelevant-repository-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>training/<span class="w">                    </span>→<span class="w"> </span>CRF<span class="w"> </span>training<span class="w"> </span>pipeline
+training/data/<span class="w">               </span>→<span class="w"> </span>cleaned<span class="w"> </span>datasets
+training/model/crf/<span class="w">          </span>→<span class="w"> </span>temporary<span class="w"> </span>training<span class="w"> </span>outputs
+
+scripts/<span class="w">                     </span>→<span class="w"> </span>golden,<span class="w"> </span>freeze,<span class="w"> </span>validation<span class="w"> </span>scripts
+scripts/release_crf_freeze.sh
+scripts/get_golden_crf_frozen_data.py
+
+src/zomi_syl/models/<span class="w">         </span>→<span class="w"> </span>packaged<span class="w"> </span>inference<span class="w"> </span>models<span class="w"> </span><span class="o">(</span>only<span class="w"> </span>these<span class="w"> </span>go<span class="w"> </span>to<span class="w"> </span>PyPI<span class="o">)</span>
+
+tests/golden/<span class="w">                </span>→<span class="w"> </span>golden<span class="w"> </span>regression<span class="w"> </span>snapshots
+tests/<span class="w">                       </span>→<span class="w"> </span>regression<span class="w"> </span>+<span class="w"> </span>backend<span class="w"> </span>tests
+
+Makefile<span class="w">                     </span>→<span class="w"> </span>orchestration<span class="w"> </span><span class="k">for</span><span class="w"> </span>training,<span class="w"> </span>testing,<span class="w"> </span>release
+MANIFEST.in<span class="w">                  </span>→<span class="w"> </span>PyPI<span class="w"> </span>exclusion<span class="w"> </span>rules
+.pre-commit-config.yaml<span class="w">      </span>→<span class="w"> </span>formatting<span class="w"> </span>+<span class="w"> </span>safety<span class="w"> </span>hooks
+</code></pre></div>
+<hr />
+<h2 id="core-responsibilities"><strong>🧱 Core Responsibilities</strong><a class="headerlink" href="#core-responsibilities" title="Permanent link">&para;</a></h2>
+<h3 id="1-maintain-reproducibility"><strong>1. Maintain Reproducibility</strong><a class="headerlink" href="#1-maintain-reproducibility" title="Permanent link">&para;</a></h3>
+<p>Infra maintainers must ensure:</p>
+<ul>
+<li>deterministic CRF training  </li>
+<li>stable feature extraction  </li>
+<li>stable golden regression  </li>
+<li>no accidental model drift  </li>
+<li>no stale artifacts in Git  </li>
+<li>no training models committed  </li>
+</ul>
+<p>Reproducibility is the highest priority.</p>
+<hr />
+<h3 id="2-maintain-golden-regression"><strong>2. Maintain Golden Regression</strong><a class="headerlink" href="#2-maintain-golden-regression" title="Permanent link">&para;</a></h3>
+<p>Golden regression is the contract between:</p>
+<ul>
+<li>the packaged inference model  </li>
+<li>the test suite  </li>
+<li>the release pipeline  </li>
+</ul>
+<p>Infra maintainers must:</p>
+<ul>
+<li>ensure golden files reflect the <strong>frozen</strong> model  </li>
+<li>ensure <strong>no ambiguous words</strong> appear in golden  </li>
+<li>regenerate golden after any model change  </li>
+<li>validate golden diffs before merging  </li>
+</ul>
+<p>Golden regeneration:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>scripts/get_golden_crf_frozen_data.py
+</code></pre></div>
+<p>Golden inspection:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>check-crf<span class="w"> </span><span class="nv">WORDS</span><span class="o">=</span><span class="s2">&quot;amah upa zawlai&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="3-maintain-the-crf-training-pipeline"><strong>3. Maintain the CRF Training Pipeline</strong><a class="headerlink" href="#3-maintain-the-crf-training-pipeline" title="Permanent link">&para;</a></h3>
+<p>Infra maintainers own:</p>
+<ul>
+<li>dataset ingestion  </li>
+<li>dataset cleaning  </li>
+<li>feature extraction  </li>
+<li>training configuration  </li>
+<li>evaluation metrics  </li>
+<li>training reproducibility  </li>
+</ul>
+<p>Key commands:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>get-zomi-syllabified-human
+make<span class="w"> </span>clean-dataset
+make<span class="w"> </span>train-crf
+</code></pre></div>
+<p>Training outputs must <strong>never</strong> be committed.</p>
+<hr />
+<h3 id="4-maintain-the-release-freeze-workflow"><strong>4. Maintain the Release Freeze Workflow</strong><a class="headerlink" href="#4-maintain-the-release-freeze-workflow" title="Permanent link">&para;</a></h3>
+<p>The release freeze script:</p>
+<div class="highlight"><pre><span></span><code>scripts/release_crf_freeze.sh
+</code></pre></div>
+<p>Must always:</p>
+<ul>
+<li>fetch dataset  </li>
+<li>clean dataset  </li>
+<li>train CRF  </li>
+<li>freeze model  </li>
+<li>package model into wheel  </li>
+<li>regenerate golden  </li>
+<li>validate tests  </li>
+<li>remove temporary artifacts  </li>
+</ul>
+<p>Infra maintainers must ensure:</p>
+<ul>
+<li>freeze script works on clean machines  </li>
+<li>wheel contains correct model  </li>
+<li>no training artifacts leak into Git  </li>
+<li>versioning is correct  </li>
+</ul>
+<hr />
+<h3 id="5-maintain-makefile-orchestration"><strong>5. Maintain Makefile Orchestration</strong><a class="headerlink" href="#5-maintain-makefile-orchestration" title="Permanent link">&para;</a></h3>
+<p>The Makefile is the single source of truth for:</p>
+<ul>
+<li>training  </li>
+<li>testing  </li>
+<li>golden regeneration  </li>
+<li>release freeze  </li>
+<li>linting  </li>
+<li>dataset ingestion  </li>
+</ul>
+<p>Infra maintainers must:</p>
+<ul>
+<li>keep targets deterministic  </li>
+<li>avoid side effects  </li>
+<li>ensure targets work on Linux + macOS  </li>
+<li>ensure targets do not require secrets  </li>
+</ul>
+<hr />
+<h3 id="6-maintain-precommit-hooks"><strong>6. Maintain Pre‑Commit Hooks</strong><a class="headerlink" href="#6-maintain-precommit-hooks" title="Permanent link">&para;</a></h3>
+<p>Infra maintainers must ensure:</p>
+<ul>
+<li>Black formatting  </li>
+<li>Ruff linting  </li>
+<li>YAML/JSON/TOML validation  </li>
+<li>model‑file blocking  </li>
+<li>golden‑ambiguity blocking  </li>
+</ul>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
+pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+</code></pre></div>
+<hr />
+<h3 id="7-maintain-ci-stability"><strong>7. Maintain CI Stability</strong><a class="headerlink" href="#7-maintain-ci-stability" title="Permanent link">&para;</a></h3>
+<p>Infra maintainers must ensure:</p>
+<ul>
+<li>CI runs <code>make test</code>  </li>
+<li>CI enforces pre‑commit  </li>
+<li>CI validates wheel build  </li>
+<li>CI validates golden regression  </li>
+</ul>
+<p>CI must never allow:</p>
+<ul>
+<li>model drift  </li>
+<li>golden drift  </li>
+<li>missing packaged model  </li>
+<li>stale artifacts  </li>
+</ul>
+<hr />
+<h2 id="testing-requirements"><strong>🧪 Testing Requirements</strong><a class="headerlink" href="#testing-requirements" title="Permanent link">&para;</a></h2>
+<p>Infra maintainers must ensure:</p>
+<ul>
+<li>all tests pass before merging  </li>
+<li>golden regression is stable  </li>
+<li>CRFBackend loads packaged model  </li>
+<li>no test depends on local state  </li>
+</ul>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<hr />
+<h2 id="what-infra-maintainers-must-never-do"><strong>🚫 What Infra Maintainers Must Never Do</strong><a class="headerlink" href="#what-infra-maintainers-must-never-do" title="Permanent link">&para;</a></h2>
+<ul>
+<li>never commit training models  </li>
+<li>never commit large datasets  </li>
+<li>never modify golden without explanation  </li>
+<li>never change CRF features without retraining  </li>
+<li>never bypass pre‑commit  </li>
+<li>never merge without full test pass  </li>
+<li>never break reproducibility  </li>
+</ul>
+<hr />
+<h2 id="release-responsibilities"><strong>📦 Release Responsibilities</strong><a class="headerlink" href="#release-responsibilities" title="Permanent link">&para;</a></h2>
+<p>Infra maintainers own the release pipeline:</p>
+<ul>
+<li>version bump  </li>
+<li>golden regeneration  </li>
+<li>freeze script execution  </li>
+<li>wheel validation  </li>
+<li>PyPI upload  </li>
+<li>post‑release verification  </li>
+</ul>
+<p>Release dry‑run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nb">test</span>
+pip<span class="w"> </span>install<span class="w"> </span>dist/zomi_syl-*.whl<span class="w"> </span>--force-reinstall
+python<span class="w"> </span>-m<span class="w"> </span>zomi_syl<span class="w"> </span>syllabify<span class="w"> </span><span class="s2">&quot;themthum&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="how-to-propose-infra-changes"><strong>🧭 How to Propose Infra Changes</strong><a class="headerlink" href="#how-to-propose-infra-changes" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open an issue describing:</li>
+<li>motivation  </li>
+<li>reproducibility impact  </li>
+<li>golden impact  </li>
+<li>
+<p>release impact  </p>
+</li>
+<li>
+<p>Create a feature branch  </p>
+</li>
+<li>Update Makefile + scripts  </li>
+<li>Update tests  </li>
+<li>Run full release dry‑run  </li>
+<li>Submit PR with:</li>
+<li>evaluation summary  </li>
+<li>golden diff  </li>
+<li>wheel validation  </li>
+</ol>
+<hr />
+<h2 id="thank-you"><strong>🤝 Thank You</strong><a class="headerlink" href="#thank-you" title="Permanent link">&para;</a></h2>
+<p>Infra maintainers are the backbone of Zomi‑Syl.<br />
+Your work ensures the project remains:</p>
+<ul>
+<li>reproducible  </li>
+<li>stable  </li>
+<li>linguistically correct  </li>
+<li>future‑proof  </li>
+</ul>
+<p>This is the foundation for the entire Zomi NLP ecosystem.</p>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+        <script src="../../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
