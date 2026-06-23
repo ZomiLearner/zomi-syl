@@ -47,7 +47,6 @@ dependencies = [
     "click>=8.1",
 ]
 
-
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
@@ -95,7 +94,6 @@ where = ["src"]
 include = ["zomi_syl*"]
 exclude = ["training*", "scripts*", "tests*", "notebooks*"]
 
-[tool.setuptools.package-data]
 [tool.setuptools.package-data]
 "zomi_syl" = [
     "py.typed",
