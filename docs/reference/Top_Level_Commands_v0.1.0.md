@@ -1,10 +1,3 @@
-Here’s the **complete, authoritative list of all commands** currently available in CLI *exactly as implemented in latest `cli.py`*.  
-This is structured for README — clean, accurate, and grouped exactly the way Click exposes them.
-
-No guessing. No assumptions. This reflects **actual CLI**.
-
----
-
 # ⭐ **Top‑Level Commands (`zomi-syl …`)**
 
 These are all commands registered directly under `@main.command()`.

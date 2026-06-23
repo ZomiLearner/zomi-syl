@@ -131,16 +131,3 @@ raw["metadata"] = {
     }
 }
 ```
-
-This is clean, structured, and future‑proof.
-
----
-
-# ⭐ 6. Final answer
-
-### ✔ Yes — CRF backend has a `tagset`.  
-### ✔ No — other backends do not need one.  
-### ✔ UMS handles this cleanly through backend‑specific `features`.  
-### ✔ CRF implementation above is correct and ready for v0.1.0.
-
----

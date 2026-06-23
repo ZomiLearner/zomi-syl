@@ -1,4 +1,4 @@
-# O is NOT needed for Zomi syllabification
+# Why O is NOT needed for Zomi syllabification
 
 ## 1. What “O” means in BIO tagging
 
