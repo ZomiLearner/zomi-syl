@@ -4,21 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "zomi-syl"
-version = "0.1.909"
+version = "0.1.908"
 description = "A modular, dialect-aware Zomi syllabification library with rule-based and CRF backends."
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
 
-[tool.setuptools.metadata]
-author = "ZomiLearner"
+[project.license]
+text = "MIT"
+
+authors = [
+    { name = "ZomiLearner" }
+]
+
 keywords = [
-    "bilstm", "crf", "dialect", "fst", "gangte",
-    "india-zomi", "kom", "linguistics", "myanmar-zomi",
-    "nlp", "paite", "phonology", "simte", "syllabification",
-    "tedim", "thado/thadou", "thangkhal", "transformer",
+    "bilstm", "crf", "dialect", "fst", "gangte", 
+    "india-zomi", "kom", "linguistics", "myanmar-zomi", 
+    "nlp", "paite", "phonology", "simte", "syllabification", 
+    "tedim", "thado/thadou", "thangkhal", "transformer", 
     "vaiphei", "zo/zou", "zomi", "zomi-community"
 ]
-license = "MIT"
 
 classifiers = [
     "Development Status :: 4 - Beta",
