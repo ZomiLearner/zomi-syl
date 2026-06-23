@@ -74,5 +74,4 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.10.0
         with:
            packages-dir: dist
-           packages_dir: ""
            verify-metadata: true
