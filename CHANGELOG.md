@@ -16,6 +16,10 @@ All notable changes to this project will be documented in this file.
 - license: Update full LICENSE text
 - makefile: Add release and dry-run targets for changelog generation
 
+### Other
+
+- release: v0.2.1
+
 
 ## [Unreleased — <Add release date manually: YYYY-MM-DD>]
 

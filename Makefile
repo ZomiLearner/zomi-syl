@@ -256,27 +256,16 @@ release:
 		git add Makefile CHANGELOG.md pyproject.toml docs/releases/notes; \
 		git commit -m "release: v$$VERSION2"; \
 		git tag v$$VERSION2; \
+		git push; \
+		git push --tags; \
 		gh release create v$$VERSION2 \
 			--title "v$$VERSION2" \
 			--notes-file docs/releases/notes/$$VERSION2.md \
 			docs/releases/notes/$$VERSION2.md; \
 	}
 
-	@echo "=======Push release commit using:=======\n\ngit push && git push --tags"
+	@echo "Release v$$VERSION2 created and pushed."
 
-release-push:
-	@if [ -z "$$(git tag -l)" ]; then \
-		echo "No tags found. Did you run 'make release'?"; \
-		exit 1; \
-	fi
-
-	@echo "Pushing release commit..."
-	@git push
-
-	@echo "Pushing tags..."
-	@git push --tags
-
-	@echo "Release pushed to GitHub."
 
 # ----------------------------------------
 # Lint & Format
