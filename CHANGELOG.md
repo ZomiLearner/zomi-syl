@@ -3,11 +3,21 @@
 All notable changes to this project will be documented in this file.
 
 
+## [v0.2.4] - 2026-08-05
+
+### 🐛 Fixes
+
+- crf: add robust error handling for CRF model loading
+
 ## [v0.2.3] - 2026-08-05
 
 ### 🔧 Chores
 
 - Update makefile and changelog generator script
+
+### Other
+
+- release: v0.2.3
 
 ## [v0.2.2] - 2026-08-05
 
