@@ -230,7 +230,21 @@ clean-pyc:
 changelog:
 	@echo "Generating CHANGELOG.md..."
 	@python3 scripts/generate_changelog.py
-	@echo "Done."
+	@echo "Done.\n\n"
+
+dryrun:
+	@echo "Generating CHANGELOG.md..."
+	@python3 scripts/generate_changelog.py --dry-run | tee /tmp/dryrun.out
+	@echo "Done.\n\n"
+
+	@{ \
+        VERSION2=$$(python3 -c 'import tomllib; print(tomllib.loads(open("pyproject.toml").read())["project"]["version"])'); \
+        echo "=======Current version is=======\n$$VERSION2"; \
+    }
+	@{ \
+		VERSION2=$$(grep "New version would be:" /tmp/dryrun.out | awk '{print $$5}'); \
+		echo "=======New version would be=======\nv$$VERSION2"; \
+	}
 
 release:
 	@echo "Generating CHANGELOG.md and release notes..."
@@ -239,7 +253,7 @@ release:
 	@{ \
 		VERSION2=$$(python3 -c 'import tomllib; print(tomllib.loads(open("pyproject.toml").read())["project"]["version"])'); \
 		echo "Releasing v$$VERSION2"; \
-		git add CHANGELOG.md pyproject.toml docs/releases/notes; \
+		git add Makefile CHANGELOG.md pyproject.toml docs/releases/notes; \
 		git commit -m "release: v$$VERSION2"; \
 		git tag v$$VERSION2; \
 		gh release create v$$VERSION2 \
@@ -248,10 +262,22 @@ release:
 			docs/releases/notes/$$VERSION2.md; \
 	}
 
-dryrun:
-	@echo "Generating CHANGELOG.md..."
-	@python3 scripts/generate_changelog.py --dry-run
-	@echo "Done."
+	@echo "=======Push release commit using:=======\n\ngit push && git push --tags"
+
+release-push:
+	@if [ -z "$$(git tag -l)" ]; then \
+		echo "No tags found. Did you run 'make release'?"; \
+		exit 1; \
+	fi
+
+	@echo "Pushing release commit..."
+	@git push
+
+	@echo "Pushing tags..."
+	@git push --tags
+
+	@echo "Release pushed to GitHub."
+
 # ----------------------------------------
 # Lint & Format
 # ----------------------------------------
