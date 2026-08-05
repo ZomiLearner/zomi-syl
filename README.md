@@ -269,6 +269,14 @@ See:
 docs/RELEASE_CHECKLIST_v0.1.0.md
 ```
 
+## 📦 **Release Notes**
+
+See:
+
+```bash
+ls docs/releases/notes
+```
+
 ---
 
 ## 📜 **License**
