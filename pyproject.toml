@@ -28,6 +28,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -80,7 +81,7 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ZomiLearner/zomi-syl"
+Homepage = "https://ZomiLearner.github.io/zomi-syl/"
 Documentation = "https://ZomiLearner.github.io/zomi-syl"
 Source = "https://github.com/ZomiLearner/zomi-syl"
 Issues = "https://github.com/ZomiLearner/zomi-syl/issues"
@@ -93,6 +94,10 @@ zomi-syl = "zomi_syl.cli:main"
 packages = ["zomi_syl"]
 package-dir = {"" = "src"}
 include-package-data = true
+license-files = ["LICENSE"]
+
+[tool.setuptools.metadata]
+description-content-type = "text/markdown"
 
 [tool.setuptools.package-data]
 "zomi_syl" = [

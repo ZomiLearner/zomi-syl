@@ -17,7 +17,7 @@
 </a>
 </p>
 
-# **zomi‑syl**
+# **zomi‑syl** [Zomi Syllabifier]
 
 **A modular, dialect‑aware Zomi syllabification library with rule‑based and CRF backends.**
 
