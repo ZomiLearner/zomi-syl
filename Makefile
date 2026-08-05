@@ -232,6 +232,15 @@ changelog:
 	@python3 scripts/generate_changelog.py
 	@echo "Done."
 
+release-changelog:
+	@echo "Generating CHANGELOG.md..."
+	@python3 scripts/generate_changelog.py --release
+	@echo "Done."
+
+dryrun:
+	@echo "Generating CHANGELOG.md..."
+	@python3 scripts/generate_changelog.py --dry-run
+	@echo "Done."
 # ----------------------------------------
 # Lint & Format
 # ----------------------------------------
