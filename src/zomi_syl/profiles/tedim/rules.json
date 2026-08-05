@@ -1,0 +1,25 @@
+{
+  "phonotactics": {
+    "allow_coda": true,
+    "allow_complex_onset": false,
+    "allow_complex_coda": false
+  },
+
+  "boundary_rules": {
+    "split_before_onset": true,
+    "never_split_digraphs": true,
+    "prefer_max_onset": true
+  },
+
+  "loanword_rules": {
+    "enable_loan_detection": true,
+    "treat_unknown_onsets_as_loans": true,
+    "treat_unknown_codas_as_loans": true
+  },
+
+  "normalization": {
+    "unicode_nfc": true,
+    "collapse_whitespace": true,
+    "normalize_quotes": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "tedim",
+    "iso_639_3": "ctd",
+    "iso_language_name": "Tedim Chin",
+    "display_name": "Tedim Zomi",
+    "description": "Standard Tedim Zomi orthography profile for syllabification.",
+    "version": "1.0.0",
+    "language": "zomi",
+    "dialect_group": "zomi",
+    "author": "Zomi NLP Project",
+    "license": "MIT",
+    "resources": {
+        "vowels": "vowels.json",
+        "onsets": "onsets.json",
+        "codas": "codas.json",
+        "nuclei": "nuclei.json",
+        "rules": "rules.json"
+    }
+}

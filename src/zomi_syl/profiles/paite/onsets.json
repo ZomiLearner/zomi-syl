@@ -1,0 +1,104 @@
+{
+    "onsets": [
+        {
+            "grapheme": "k",
+            "description": "Voiceless velar stop; common onset in native Tedim words."
+        },
+        {
+            "grapheme": "kh",
+            "description": "Aspirated voiceless velar stop; contrasts with 'k'."
+        },
+        {
+            "grapheme": "g",
+            "description": "Voiced velar stop; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "ng",
+            "description": "Velar nasal; can appear word-initially in Tedim."
+        },
+        {
+            "grapheme": "c",
+            "description": "Voiceless alveopalatal affricate; similar to 'ch' in English 'church' but unaspirated."
+        },
+        {
+            "grapheme": "ch",
+            "description": "Aspirated alveopalatal affricate; contrasts with 'c'."
+        },
+        {
+            "grapheme": "j",
+            "description": "Voiced alveopalatal affricate; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "ny",
+            "description": "Palatal nasal; similar to Spanish 'ñ'."
+        },
+        {
+            "grapheme": "t",
+            "description": "Voiceless alveolar stop; common onset in native words."
+        },
+        {
+            "grapheme": "th",
+            "description": "Aspirated voiceless alveolar stop; contrasts with 't'."
+        },
+        {
+            "grapheme": "d",
+            "description": "Voiced alveolar stop; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "n",
+            "description": "Alveolar nasal; highly productive onset."
+        },
+        {
+            "grapheme": "p",
+            "description": "Voiceless bilabial stop; common in native words."
+        },
+        {
+            "grapheme": "ph",
+            "description": "Aspirated voiceless bilabial stop; contrasts with 'p'."
+        },
+        {
+            "grapheme": "b",
+            "description": "Voiced bilabial stop; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "m",
+            "description": "Bilabial nasal; common onset in native words."
+        },
+        {
+            "grapheme": "ts",
+            "description": "Voiceless alveolar affricate; occurs in native and borrowed forms."
+        },
+        {
+            "grapheme": "s",
+            "description": "Voiceless alveolar fricative; common onset."
+        },
+        {
+            "grapheme": "z",
+            "description": "Voiced alveolar fricative; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "h",
+            "description": "Glottal fricative; can appear before vowels or sonorants."
+        },
+        {
+            "grapheme": "l",
+            "description": "Alveolar lateral approximant; common onset."
+        },
+        {
+            "grapheme": "r",
+            "description": "Alveolar trill or tap depending on speaker; common onset."
+        },
+        {
+            "grapheme": "v",
+            "description": "Labiodental approximant; occurs in native and loanwords."
+        },
+        {
+            "grapheme": "w",
+            "description": "Labial-velar approximant; common onset."
+        },
+        {
+            "grapheme": "y",
+            "description": "Palatal approximant; common onset."
+        }
+    ]
+}
