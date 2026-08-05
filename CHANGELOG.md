@@ -3,14 +3,21 @@
 All notable changes to this project will be documented in this file.
 
 
-## [0.2.2] - 2026-08-05
+## [v0.2.3] - 2026-08-05
+
+### 🔧 Chores
+
+- Update makefile and changelog generator script
+
+## [v0.2.2] - 2026-08-05
 
 ### 📝 Documentation
 
 - readme: Add Release Notes section linking to docs/releases/notes
 
+### Other
 
-## [Unreleased — <Add release date manually: YYYY-MM-DD>]
+- release: v0.2.2
 
 ## [v0.2.1] - 2026-08-05
 
