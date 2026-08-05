@@ -264,7 +264,7 @@ release:
 			docs/releases/notes/$$VERSION2.md; \
 	}
 
-	@echo "Release v$$VERSION2 created and pushed."
+	@echo "Release v$$(python3 -c 'import tomllib; print(tomllib.loads(open("pyproject.toml").read())["project"]["version"])') created and pushed."
 
 
 # ----------------------------------------

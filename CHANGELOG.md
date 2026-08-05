@@ -3,7 +3,16 @@
 All notable changes to this project will be documented in this file.
 
 
-## [0.2.1] - 2026-08-05
+## [0.2.2] - 2026-08-05
+
+### 📝 Documentation
+
+- readme: Add Release Notes section linking to docs/releases/notes
+
+
+## [Unreleased — <Add release date manually: YYYY-MM-DD>]
+
+## [v0.2.1] - 2026-08-05
 
 ### 📝 Documentation
 
@@ -19,9 +28,7 @@ All notable changes to this project will be documented in this file.
 ### Other
 
 - release: v0.2.1
-
-
-## [Unreleased — <Add release date manually: YYYY-MM-DD>]
+- release: v0.2.1
 
 ## [v0.2.0-alpha.1] - 2026-08-05
 
@@ -46,11 +53,6 @@ All notable changes to this project will be documented in this file.
 
 - Revert toml changes and Bump version from v0.1.909 to v0.1.910
 - Revert toml changes and Bump version from v0.1.908 to v0.1.909
-
-## [v0.1.909] - 2026-06-23
-
-### Other
-
 - Revert toml changes and Bump version from v0.1.908 to v0.1.909
 - Edit toml and Bump version from v0.1.908 to v0.1.909
 
