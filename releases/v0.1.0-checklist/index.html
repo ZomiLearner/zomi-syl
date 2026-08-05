@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="Zomi‑Syl Contributors">
-        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/guides/RELEASE_CHECKLIST/">
+        <link rel="canonical" href="https://ZomiLearner.github.io/zomi-syl/releases/v0.1.0-checklist/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Release Checklist - Zomi‑Syl Documentation</title>
+        <title>RELEASE_CHECKLIST.md - Zomi‑Syl Documentation</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -153,19 +153,19 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
+    <a href="../../guides/Linguistic_Contributors_Guide/" class="dropdown-item">Linguistic Contributors Guide</a>
 </li>
                                     
 <li>
-    <a href="../Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
+    <a href="../../guides/Infra_Maintainers_Guide/" class="dropdown-item">Infra Maintainers Guide</a>
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Release Checklist</a>
+    <a href="../../guides/RELEASE_CHECKLIST/" class="dropdown-item">Release Checklist</a>
 </li>
                                 </ul>
                             </li>
@@ -196,17 +196,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../Infra_Maintainers_Guide/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../../changelog/RELEASE_CHECKLIST_v0.1.0/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/guides/RELEASE_CHECKLIST.md" class="nav-link">Edit on zomi-syl
+                                <a href="https://github.com/ZomiLearner/zomi-syl/edit/master/docs/releases/v0.1.0-checklist.md" class="nav-link">Edit on zomi-syl
                                     </a>
                             </li>
                     </ul>
@@ -229,77 +219,55 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#release_checklistmd" class="nav-link">RELEASE_CHECKLIST.md</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#v-hybrid-release-checklist-manual-ci" class="nav-link">v — Hybrid Release Checklist (Manual → CI)</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1-versioning" class="nav-link">1. Versioning</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#a-manual-steps-must-be-done-before-ci" class="nav-link">A. Manual Steps (must be done before CI)</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#a1-versioning" class="nav-link">A1. Versioning</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2-model-directory-structure" class="nav-link">2. Model Directory Structure</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a2-model-directory-structure" class="nav-link">A2. Model Directory Structure</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3-packaging-include-all-required-files" class="nav-link">3. Packaging: Include All Required Files</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a3-packaging-include-all-required-files" class="nav-link">A3. Packaging: Include All Required Files</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4-cli-validation" class="nav-link">4. CLI Validation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a4-cli-validation" class="nav-link">A4. CLI Validation</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5-tests" class="nav-link">5. Tests</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a5-profiles-validation" class="nav-link">A5. Profiles Validation</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6-profiles-validation" class="nav-link">6. Profiles Validation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a6-documentation" class="nav-link">A6. Documentation</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7-documentation" class="nav-link">7. Documentation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a7-code-cleanup" class="nav-link">A7. Code Cleanup</a>
+            <li class="nav-item" data-bs-level="2"><a href="#8-code-cleanup" class="nav-link">8. Code Cleanup</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a8-makefile-developer-help-targets" class="nav-link">A8. Makefile Developer Help Targets</a>
+            <li class="nav-item" data-bs-level="2"><a href="#9-makefile-developer-help-targets" class="nav-link">9. Makefile Developer Help Targets</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a9-licensing" class="nav-link">A9. Licensing</a>
+            <li class="nav-item" data-bs-level="2"><a href="#10-licensing" class="nav-link">10. Licensing</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a10-final-manual-sanity-check" class="nav-link">A10. Final Manual Sanity Check</a>
+            <li class="nav-item" data-bs-level="2"><a href="#11-remove-old-build-artifacts" class="nav-link">11. Remove Old Build Artifacts</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#b-cidriven-steps-automated" class="nav-link">B. CI‑Driven Steps (automated)</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#b1-ci-build-pipeline" class="nav-link">B1. CI Build Pipeline</a>
+            <li class="nav-item" data-bs-level="2"><a href="#12-final-sanity-check" class="nav-link">12. Final Sanity Check</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#b2-ci-test-pipeline" class="nav-link">B2. CI Test Pipeline</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#b3-ci-lint-typecheck-pipeline" class="nav-link">B3. CI Lint &amp; Type‑Check Pipeline</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#b4-ci-documentation-pipeline" class="nav-link">B4. CI Documentation Pipeline</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#b5-ci-publish-pipeline" class="nav-link">B5. CI Publish Pipeline</a>
+            <li class="nav-item" data-bs-level="2"><a href="#13-publish" class="nav-link">13. Publish</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -311,155 +279,158 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="release_checklistmd"><strong>RELEASE_CHECKLIST.md</strong><a class="headerlink" href="#release_checklistmd" title="Permanent link">&para;</a></h1>
-<h2 id="v-hybrid-release-checklist-manual-ci"><em><project> v<version> — Hybrid Release Checklist (Manual → CI)</em><a class="headerlink" href="#v-hybrid-release-checklist-manual-ci" title="Permanent link">&para;</a></h2>
-<p>A strict, reusable release checklist for preparing and publishing a new version of <strong><project></strong>.<br />
-All <strong>manual steps must be completed before CI</strong> is allowed to run.</p>
+<h3 id="zomisyl-v010-release-preparation-checklist"><em>zomi‑syl v0.1.0 — Release Preparation Checklist</em><a class="headerlink" href="#zomisyl-v010-release-preparation-checklist" title="Permanent link">&para;</a></h3>
+<p>A polished, production‑ready <strong><code>RELEASE_CHECKLIST.md</code></strong> for <strong>zomi‑syl v0.1.0</strong>, written as a standalone document.</p>
+<p>This document lists all required steps before publishing <strong>zomi‑syl v0.1.0</strong> to PyPI.<br />
+Version 0.1.0 includes <strong>rule</strong> and <strong>crf</strong> backends only.</p>
 <hr />
-<h1 id="a-manual-steps-must-be-done-before-ci"><strong>A. Manual Steps (must be done <em>before</em> CI)</strong><a class="headerlink" href="#a-manual-steps-must-be-done-before-ci" title="Permanent link">&para;</a></h1>
-<h2 id="a1-versioning"><strong>A1. Versioning</strong><a class="headerlink" href="#a1-versioning" title="Permanent link">&para;</a></h2>
+<h2 id="1-versioning"><strong>1. Versioning</strong><a class="headerlink" href="#1-versioning" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Update version in <code>pyproject.toml</code>  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Add entry to <code>CHANGELOG.md</code>  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Confirm CLI reports correct version:</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Update <code>src/zomi_syl/version.py</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>version
+<div class="highlight"><pre><span></span><code>__version__ = &quot;0.1.0&quot;
 </code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Ensure <code>pyproject.toml</code> version matches.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add a v0.1.0 entry to <code>CHANGELOG.md</code>.</li>
+</ul>
 <hr />
-<h2 id="a2-model-directory-structure"><strong>A2. Model Directory Structure</strong><a class="headerlink" href="#a2-model-directory-structure" title="Permanent link">&para;</a></h2>
-<p>Required layout:</p>
-<div class="highlight"><pre><span></span><code>src/&lt;package&gt;/models/
-  &lt;backend-1&gt;/
-    &lt;required-files&gt;
-  &lt;backend-2&gt;/
-    &lt;required-files&gt;
+<h2 id="2-model-directory-structure"><strong>2. Model Directory Structure</strong><a class="headerlink" href="#2-model-directory-structure" title="Permanent link">&para;</a></h2>
+<p>Models must follow the required layout:</p>
+<div class="highlight"><pre><span></span><code>src/zomi_syl/models/
+  crf/
+    config.json
+    crf_syllabifier.joblib
+    eval.txt
+    stats.txt
+
+  rule/
+    ruleset.json
+    metadata.json
 </code></pre></div>
 <p>Checklist:
-- [ ] No deprecated model directories<br />
-- [ ] Loader does not reference deprecated paths<br />
-- [ ] Registry resolves <code>models/&lt;model-name&gt;/</code> correctly<br />
-- [ ] Metadata fields (e.g., <code>storage.local_path</code>) correct  </p>
+- [ ] No models under <code>models/bundled/</code>
+- [ ] Loader does <strong>not</strong> reference <code>bundled/</code>
+- [ ] Registry resolves <code>models/&lt;model-name&gt;/</code> correctly
+- [ ] <code>storage.local_path</code> in metadata is <code>""</code> (empty)</p>
 <hr />
-<h2 id="a3-packaging-include-all-required-files"><strong>A3. Packaging: Include All Required Files</strong><a class="headerlink" href="#a3-packaging-include-all-required-files" title="Permanent link">&para;</a></h2>
+<h2 id="3-packaging-include-all-required-files"><strong>3. Packaging: Include All Required Files</strong><a class="headerlink" href="#3-packaging-include-all-required-files" title="Permanent link">&para;</a></h2>
 <p>Ensure <code>pyproject.toml</code> includes:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.setuptools.package-data]</span>
-<span class="err">&lt;</span><span class="n">package</span><span class="err">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;models/**/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profiles/**/*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;config/*.toml&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code>[tool.setuptools.package-data]
+zomi_syl = [&quot;models/**/*&quot;, &quot;profiles/**/*&quot;, &quot;config/*.toml&quot;]
 </code></pre></div>
 <p>Verify:
-- [ ] Model files included<br />
+- [ ] CRF model files included in wheel<br />
+- [ ] Rule model files included in wheel<br />
 - [ ] Profiles included<br />
 - [ ] Config files included  </p>
-<p>Local test:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>build
-pip<span class="w"> </span>install<span class="w"> </span>dist/&lt;package&gt;-&lt;version&gt;-py3-none-any.whl
-python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;args&gt;
+<p>Test:</p>
+<div class="highlight"><pre><span></span><code>python -m build
+pip install dist/zomi_syl-0.1.0-py3-none-any.whl
+python -m zomi_syl syllabify &quot;themthum&quot;
 </code></pre></div>
 <hr />
-<h2 id="a4-cli-validation"><strong>A4. CLI Validation</strong><a class="headerlink" href="#a4-cli-validation" title="Permanent link">&para;</a></h2>
-<p>Run:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>version
-python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;args&gt;
-python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;command&gt;<span class="w"> </span>--backend<span class="w"> </span>&lt;backend-1&gt;<span class="w"> </span>&lt;args&gt;
-python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;command&gt;<span class="w"> </span>--backend<span class="w"> </span>&lt;backend-2&gt;<span class="w"> </span>&lt;args&gt;
-</code></pre></div>
+<h2 id="4-cli-validation"><strong>4. CLI Validation</strong><a class="headerlink" href="#4-cli-validation" title="Permanent link">&para;</a></h2>
+<p>Test all CLI entry points:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> <code>python -m zomi_syl syllabify "themthum"</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>python -m zomi_syl syllabify --backend rule "kiginna"</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>python -m zomi_syl syllabify --backend crf "kiginna"</code></li>
+</ul>
 <p>Confirm:
 - [ ] No stack traces<br />
 - [ ] No missing model errors<br />
-- [ ] No fallback to deprecated paths<br />
-- [ ] All backends load correctly  </p>
+- [ ] No fallback to bundled paths<br />
+- [ ] No transformer backend errors  </p>
 <hr />
-<h2 id="a5-profiles-validation"><strong>A5. Profiles Validation</strong><a class="headerlink" href="#a5-profiles-validation" title="Permanent link">&para;</a></h2>
+<h2 id="5-tests"><strong>5. Tests</strong><a class="headerlink" href="#5-tests" title="Permanent link">&para;</a></h2>
 <p>Run:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>profiles<span class="w"> </span>validate<span class="w"> </span>&lt;profile-name&gt;
+<div class="highlight"><pre><span></span><code>pytest -q
+</code></pre></div>
+<p>Verify:
+- [ ] <code>test_crf_consistency.py</code> passes<br />
+- [ ] <code>test_crf_regression.py</code> passes<br />
+- [ ] No unexpected failures  </p>
+<hr />
+<h2 id="6-profiles-validation"><strong>6. Profiles Validation</strong><a class="headerlink" href="#6-profiles-validation" title="Permanent link">&para;</a></h2>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>python -m zomi_syl validate-profile tedim
+python -m zomi_syl validate-profile zolai_standard
+python -m zomi_syl validate-profile myanmar_zomi
 </code></pre></div>
 <p>Confirm:
-- [ ] Profiles load<br />
+- [ ] All profiles load<br />
 - [ ] No missing keys<br />
 - [ ] Validators pass  </p>
 <hr />
-<h2 id="a6-documentation"><strong>A6. Documentation</strong><a class="headerlink" href="#a6-documentation" title="Permanent link">&para;</a></h2>
+<h2 id="7-documentation"><strong>7. Documentation</strong><a class="headerlink" href="#7-documentation" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> README includes installation, quickstart, backend usage, examples, supported profiles  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> External resource links valid  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> README.md includes:</li>
+<li>installation instructions  </li>
+<li>quickstart  </li>
+<li>backend usage (rule + crf)  </li>
+<li>example commands  </li>
+<li>supported profiles  </li>
+<li>
+<p>link to HF models  </p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled/> Validate PyPI rendering:</p>
+</li>
 </ul>
-<p>Optional:</p>
-<div class="highlight"><pre><span></span><code>twine<span class="w"> </span>check<span class="w"> </span>dist/*
+<div class="highlight"><pre><span></span><code>twine check dist/*
 </code></pre></div>
 <hr />
-<h2 id="a7-code-cleanup"><strong>A7. Code Cleanup</strong><a class="headerlink" href="#a7-code-cleanup" title="Permanent link">&para;</a></h2>
+<h2 id="8-code-cleanup"><strong>8. Code Cleanup</strong><a class="headerlink" href="#8-code-cleanup" title="Permanent link">&para;</a></h2>
+<p>Remove development artifacts:</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Remove development artifacts  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Remove unused files  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Ensure no temporary or experimental code remains  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>src/zomi_syl/models/loader_before_using_crf.py</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> <code>src/zomi_syl/temp.py</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Unused scripts in <code>scripts/</code></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Debug prints in loader/engine</li>
 </ul>
 <hr />
-<h2 id="a8-makefile-developer-help-targets"><strong>A8. Makefile Developer Help Targets</strong><a class="headerlink" href="#a8-makefile-developer-help-targets" title="Permanent link">&para;</a></h2>
-<p>Check:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>help-devs
-make<span class="w"> </span>help-cli
-<span class="c1"># Todo:</span>
-<span class="c1"># make help-backends</span>
-<span class="c1"># make help-models</span>
-</code></pre></div>
+<h2 id="9-makefile-developer-help-targets"><strong>9. Makefile Developer Help Targets</strong><a class="headerlink" href="#9-makefile-developer-help-targets" title="Permanent link">&para;</a></h2>
+<p>Ensure the following exist and work:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> help-devs</li>
+<li class="task-list-item"><input type="checkbox" disabled/> help-backends</li>
+<li class="task-list-item"><input type="checkbox" disabled/> help-models</li>
+<li class="task-list-item"><input type="checkbox" disabled/> help-cli</li>
+</ul>
 <hr />
-<h2 id="a9-licensing"><strong>A9. Licensing</strong><a class="headerlink" href="#a9-licensing" title="Permanent link">&para;</a></h2>
+<h2 id="10-licensing"><strong>10. Licensing</strong><a class="headerlink" href="#10-licensing" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
 <li class="task-list-item"><input type="checkbox" disabled/> LICENSE file present  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Model/data licenses compatible  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> External repos referenced properly  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> Model licenses compatible  </li>
+<li class="task-list-item"><input type="checkbox" disabled/> HF repos referenced in README  </li>
 </ul>
 <hr />
-<h2 id="a10-final-manual-sanity-check"><strong>A10. Final Manual Sanity Check</strong><a class="headerlink" href="#a10-final-manual-sanity-check" title="Permanent link">&para;</a></h2>
+<h2 id="11-remove-old-build-artifacts"><strong>11. Remove Old Build Artifacts</strong><a class="headerlink" href="#11-remove-old-build-artifacts" title="Permanent link">&para;</a></h2>
+<p>Before final build:</p>
+<div class="highlight"><pre><span></span><code>rm -rf dist/ build/ src/zomi_syl.egg-info/
+</code></pre></div>
+<p>Checklist:
+- [ ] egg-info removed<br />
+- [ ] old wheels removed  </p>
+<hr />
+<h2 id="12-final-sanity-check"><strong>12. Final Sanity Check</strong><a class="headerlink" href="#12-final-sanity-check" title="Permanent link">&para;</a></h2>
 <p>Install from wheel:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>uninstall<span class="w"> </span>-y<span class="w"> </span>&lt;package&gt;
-pip<span class="w"> </span>install<span class="w"> </span>dist/&lt;package&gt;-&lt;version&gt;-py3-none-any.whl
-python<span class="w"> </span>-m<span class="w"> </span>&lt;package&gt;<span class="w"> </span>&lt;command&gt;<span class="w"> </span>&lt;args&gt;
+<div class="highlight"><pre><span></span><code>pip uninstall -y zomi_syl
+pip install dist/zomi_syl-0.1.0-py3-none-any.whl
+python -m zomi_syl syllabify &quot;themthum&quot;
 </code></pre></div>
 <p>Verify:
 - [ ] CLI works<br />
-- [ ] All backends load<br />
+- [ ] CRF backend loads<br />
+- [ ] Rule backend loads<br />
 - [ ] No missing files<br />
 - [ ] No warnings  </p>
 <hr />
-<h1 id="b-cidriven-steps-automated"><strong>B. CI‑Driven Steps (automated)</strong><a class="headerlink" href="#b-cidriven-steps-automated" title="Permanent link">&para;</a></h1>
-<h2 id="b1-ci-build-pipeline"><strong>B1. CI Build Pipeline</strong><a class="headerlink" href="#b1-ci-build-pipeline" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> CI builds wheel + sdist in a clean environment  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> No leftover artifacts (<code>dist/</code>, <code>build/</code>, <code>.egg-info/</code>)  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Package‑data rules include all required assets  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Version in <code>pyproject.toml</code> matches the release tag  </li>
-</ul>
-<hr />
-<h2 id="b2-ci-test-pipeline"><strong>B2. CI Test Pipeline</strong><a class="headerlink" href="#b2-ci-test-pipeline" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> All tests pass  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Regression tests pass  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> No unexpected failures  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> No warnings or deprecations flagged  </li>
-</ul>
-<hr />
-<h2 id="b3-ci-lint-typecheck-pipeline"><strong>B3. CI Lint &amp; Type‑Check Pipeline</strong><a class="headerlink" href="#b3-ci-lint-typecheck-pipeline" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Linting passes  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Formatting passes  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Type checks pass  </li>
-</ul>
-<hr />
-<h2 id="b4-ci-documentation-pipeline"><strong>B4. CI Documentation Pipeline</strong><a class="headerlink" href="#b4-ci-documentation-pipeline" title="Permanent link">&para;</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> README renders correctly  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Documentation builds (if applicable)  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> No broken links or missing assets  </li>
-</ul>
-<hr />
-<h2 id="b5-ci-publish-pipeline"><strong>B5. CI Publish Pipeline</strong><a class="headerlink" href="#b5-ci-publish-pipeline" title="Permanent link">&para;</a></h2>
-<p>Triggered only on tagged releases.</p>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> PyPI credentials stored in CI secrets  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> CI uploads artifacts to PyPI  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> Upload succeeds  </li>
-<li class="task-list-item"><input type="checkbox" disabled/> PyPI page updates with new version  </li>
-</ul>
-<hr /></div>
+<h2 id="13-publish"><strong>13. Publish</strong><a class="headerlink" href="#13-publish" title="Permanent link">&para;</a></h2>
+<p>When everything passes:</p>
+<div class="highlight"><pre><span></span><code>twine upload dist/*
+</code></pre></div></div>
             </div>
         </div>
 
