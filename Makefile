@@ -253,7 +253,7 @@ release:
 	@{ \
 		VERSION2=$$(python3 -c 'import tomllib; print(tomllib.loads(open("pyproject.toml").read())["project"]["version"])'); \
 		echo "Releasing v$$VERSION2"; \
-		git add Makefile CHANGELOG.md pyproject.toml docs/releases/notes; \
+		git add Makefile CHANGELOG.md scripts/generate_changelog.py pyproject.toml docs/releases/notes; \
 		git commit -m "release: v$$VERSION2"; \
 		git tag v$$VERSION2; \
 		git push; \

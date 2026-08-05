@@ -184,7 +184,7 @@ def write_changelog(release_mode=False):
     if release_mode:
         # Automated release: convert Unreleased → real release
         today = date.today().isoformat()
-        lines.append(f"## [{version}] - {today}\n")
+        lines.append(f"## [v{version}] - {today}\n")
 
         # Breaking changes first
         breaking_section = generate_breaking_section(unreleased_buckets.get("breaking", []))
@@ -200,9 +200,6 @@ def write_changelog(release_mode=False):
         # Other uncategorized commits
         if unreleased_buckets["other"]:
             lines.append(generate_section("Other", unreleased_buckets["other"]))
-
-        # Create a new empty Unreleased section
-        lines.append(f"\n## [Unreleased — <Add release date manually: YYYY-MM-DD>]\n")
 
     else:
         # Normal mode: Unreleased stays manual
@@ -383,9 +380,7 @@ def main():
         
         # Write to file
         write_release_notes_file(new_version, release_notes)
-
         write_changelog(release_mode=True)
-        # create_git_tag(new_version)
 
         print(f"Release completed. Version bumped {old_version} → {new_version}.")
     else:
