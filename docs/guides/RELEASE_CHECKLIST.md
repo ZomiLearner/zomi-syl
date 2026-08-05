@@ -1,197 +1,192 @@
 # **RELEASE_CHECKLIST.md**  
+## _<project> v<version> — Hybrid Release Checklist (Manual → CI)_
 
-### _zomi‑syl v0.1.0 — Release Preparation Checklist_
-
-A polished, production‑ready **`RELEASE_CHECKLIST.md`** for **zomi‑syl v0.1.0**, written as a standalone document.
-
-This document lists all required steps before publishing **zomi‑syl v0.1.0** to PyPI.  
-Version 0.1.0 includes **rule** and **crf** backends only.
+A strict, reusable release checklist for preparing and publishing a new version of **<project>**.  
+All **manual steps must be completed before CI** is allowed to run.
 
 ---
 
-## **1. Versioning**
-- [ ] Update `src/zomi_syl/version.py`:
+# **A. Manual Steps (must be done *before* CI)**
 
-  ```
-  __version__ = "0.1.0"
-  ```
+## **A1. Versioning**
+- [ ] Update version in `pyproject.toml`  
+- [ ] Add entry to `CHANGELOG.md`  
+- [ ] Confirm CLI reports correct version:
 
-- [ ] Ensure `pyproject.toml` version matches.
-- [ ] Add a v0.1.0 entry to `CHANGELOG.md`.
-
----
-
-## **2. Model Directory Structure**
-Models must follow the required layout:
-
+```bash
+python -m <package> version
 ```
-src/zomi_syl/models/
-  crf/
-    config.json
-    crf_syllabifier.joblib
-    eval.txt
-    stats.txt
 
-  rule/
-    ruleset.json
-    metadata.json
+---
+
+## **A2. Model Directory Structure**
+Required layout:
+
+```text
+src/<package>/models/
+  <backend-1>/
+    <required-files>
+  <backend-2>/
+    <required-files>
 ```
 
 Checklist:
-- [ ] No models under `models/bundled/`
-- [ ] Loader does **not** reference `bundled/`
-- [ ] Registry resolves `models/<model-name>/` correctly
-- [ ] `storage.local_path` in metadata is `""` (empty)
+- [ ] No deprecated model directories  
+- [ ] Loader does not reference deprecated paths  
+- [ ] Registry resolves `models/<model-name>/` correctly  
+- [ ] Metadata fields (e.g., `storage.local_path`) correct  
 
 ---
 
-## **3. Packaging: Include All Required Files**
+## **A3. Packaging: Include All Required Files**
 Ensure `pyproject.toml` includes:
 
-```
+```toml
 [tool.setuptools.package-data]
-zomi_syl = ["models/**/*", "profiles/**/*", "config/*.toml"]
+<package> = ["models/**/*", "profiles/**/*", "config/*.toml"]
 ```
 
 Verify:
-- [ ] CRF model files included in wheel  
-- [ ] Rule model files included in wheel  
+- [ ] Model files included  
 - [ ] Profiles included  
 - [ ] Config files included  
 
-Test:
+Local test:
 
-```
+```bash
 python -m build
-pip install dist/zomi_syl-0.1.0-py3-none-any.whl
-python -m zomi_syl syllabify "themthum"
+pip install dist/<package>-<version>-py3-none-any.whl
+python -m <package> <command> <args>
 ```
 
 ---
 
-## **4. CLI Validation**
-Test all CLI entry points:
+## **A4. CLI Validation**
+Run:
 
-- [ ] `python -m zomi_syl syllabify "themthum"`
-- [ ] `python -m zomi_syl syllabify --backend rule "kiginna"`
-- [ ] `python -m zomi_syl syllabify --backend crf "kiginna"`
+```bash
+python -m <package> version
+python -m <package> <command> <args>
+python -m <package> <command> --backend <backend-1> <args>
+python -m <package> <command> --backend <backend-2> <args>
+```
 
 Confirm:
 - [ ] No stack traces  
 - [ ] No missing model errors  
-- [ ] No fallback to bundled paths  
-- [ ] No transformer backend errors  
+- [ ] No fallback to deprecated paths  
+- [ ] All backends load correctly  
 
 ---
 
-## **5. Tests**
+## **A5. Profiles Validation**
 Run:
 
-```
-pytest -q
-```
-
-Verify:
-- [ ] `test_crf_consistency.py` passes  
-- [ ] `test_crf_regression.py` passes  
-- [ ] No unexpected failures  
-
----
-
-## **6. Profiles Validation**
-Run:
-
-```
-python -m zomi_syl validate-profile tedim
-python -m zomi_syl validate-profile zolai_standard
-python -m zomi_syl validate-profile myanmar_zomi
+```bash
+python -m <package> profiles validate <profile-name>
 ```
 
 Confirm:
-- [ ] All profiles load  
+- [ ] Profiles load  
 - [ ] No missing keys  
 - [ ] Validators pass  
 
 ---
 
-## **7. Documentation**
-- [ ] README.md includes:
-  - installation instructions  
-  - quickstart  
-  - backend usage (rule + crf)  
-  - example commands  
-  - supported profiles  
-  - link to HF models  
+## **A6. Documentation**
+- [ ] README includes installation, quickstart, backend usage, examples, supported profiles  
+- [ ] External resource links valid  
 
-- [ ] Validate PyPI rendering:
+Optional:
 
-  ```
-  twine check dist/*
-  ```
+```bash
+twine check dist/*
+```
 
 ---
 
-## **8. Code Cleanup**
-Remove development artifacts:
-
-- [ ] `src/zomi_syl/models/loader_before_using_crf.py`
-- [ ] `src/zomi_syl/temp.py`
-- [ ] Unused scripts in `scripts/`
-- [ ] Debug prints in loader/engine
+## **A7. Code Cleanup**
+- [ ] Remove development artifacts  
+- [ ] Remove unused files  
+- [ ] Ensure no temporary or experimental code remains  
 
 ---
 
-## **9. Makefile Developer Help Targets**
-Ensure the following exist and work:
+## **A8. Makefile Developer Help Targets**
+Check:
 
-- [ ] help-devs
-- [ ] help-backends
-- [ ] help-models
-- [ ] help-cli
+```bash
+make help-devs
+make help-cli
+# Todo:
+# make help-backends
+# make help-models
+```
 
 ---
 
-## **10. Licensing**
+## **A9. Licensing**
 - [ ] LICENSE file present  
-- [ ] Model licenses compatible  
-- [ ] HF repos referenced in README  
+- [ ] Model/data licenses compatible  
+- [ ] External repos referenced properly  
 
 ---
 
-## **11. Remove Old Build Artifacts**
-Before final build:
-
-```
-rm -rf dist/ build/ src/zomi_syl.egg-info/
-```
-
-Checklist:
-- [ ] egg-info removed  
-- [ ] old wheels removed  
-
----
-
-## **12. Final Sanity Check**
+## **A10. Final Manual Sanity Check**
 Install from wheel:
 
-```
-pip uninstall -y zomi_syl
-pip install dist/zomi_syl-0.1.0-py3-none-any.whl
-python -m zomi_syl syllabify "themthum"
+```bash
+pip uninstall -y <package>
+pip install dist/<package>-<version>-py3-none-any.whl
+python -m <package> <command> <args>
 ```
 
 Verify:
 - [ ] CLI works  
-- [ ] CRF backend loads  
-- [ ] Rule backend loads  
+- [ ] All backends load  
 - [ ] No missing files  
 - [ ] No warnings  
 
 ---
 
-## **13. Publish**
-When everything passes:
+# **B. CI‑Driven Steps (automated)**
 
-```
-twine upload dist/*
-```
+## **B1. CI Build Pipeline**
+- [ ] CI builds wheel + sdist in a clean environment  
+- [ ] No leftover artifacts (`dist/`, `build/`, `.egg-info/`)  
+- [ ] Package‑data rules include all required assets  
+- [ ] Version in `pyproject.toml` matches the release tag  
+
+---
+
+## **B2. CI Test Pipeline**
+- [ ] All tests pass  
+- [ ] Regression tests pass  
+- [ ] No unexpected failures  
+- [ ] No warnings or deprecations flagged  
+
+---
+
+## **B3. CI Lint & Type‑Check Pipeline**
+- [ ] Linting passes  
+- [ ] Formatting passes  
+- [ ] Type checks pass  
+
+---
+
+## **B4. CI Documentation Pipeline**
+- [ ] README renders correctly  
+- [ ] Documentation builds (if applicable)  
+- [ ] No broken links or missing assets  
+
+---
+
+## **B5. CI Publish Pipeline**
+Triggered only on tagged releases.
+
+- [ ] PyPI credentials stored in CI secrets  
+- [ ] CI uploads artifacts to PyPI  
+- [ ] Upload succeeds  
+- [ ] PyPI page updates with new version  
+
+---

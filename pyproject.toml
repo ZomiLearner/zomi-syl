@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "zomi-syl"
-version = "0.1.910"
+version = "0.2.0"
 description = "A modular, dialect-aware Zomi syllabification library with rule-based and CRF backends."
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
@@ -95,9 +95,6 @@ packages = ["zomi_syl"]
 package-dir = {"" = "src"}
 include-package-data = true
 license-files = ["LICENSE"]
-
-[tool.setuptools.metadata]
-description-content-type = "text/markdown"
 
 [tool.setuptools.package-data]
 "zomi_syl" = [
