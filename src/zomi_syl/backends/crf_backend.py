@@ -4,6 +4,8 @@ import importlib.resources
 from pathlib import Path
 from typing import List, Dict, Any
 import joblib
+import traceback
+from zomi_syl.exceptions import ZomiSylError
 
 from zomi_syl.core.interfaces import (
     BaseSyllabifier,
@@ -44,8 +46,15 @@ class CRFBackend(BaseSyllabifier):
         if not self.model_path.exists():
             raise FileNotFoundError(f"CRF model not found: {self.model_path}")
 
-        # 3. Load model
-        self.model = joblib.load(self.model_path)
+        # # 3. Load model
+        # self.model = joblib.load(self.model_path)
+        try:
+            self.model = joblib.load(self.model_path)
+        except Exception as e:
+            tb = traceback.format_exc()
+            raise ZomiSylError(
+                f"CRF model failed to load from {self.model_path}: {e}\n\n{tb}"
+            )
         
         # 4. Get/Define CRF tagset
         self.tagset = getattr(self.model, "tagset", ["B", "I"])
