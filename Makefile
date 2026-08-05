@@ -232,10 +232,21 @@ changelog:
 	@python3 scripts/generate_changelog.py
 	@echo "Done."
 
-release-changelog:
-	@echo "Generating CHANGELOG.md..."
+release:
+	@echo "Generating CHANGELOG.md and release notes..."
 	@python3 scripts/generate_changelog.py --release
-	@echo "Done."
+
+	@{ \
+		VERSION2=$$(python3 -c 'import tomllib; print(tomllib.loads(open("pyproject.toml").read())["project"]["version"])'); \
+		echo "Releasing v$$VERSION2"; \
+		git add CHANGELOG.md pyproject.toml docs/releases/notes; \
+		git commit -m "release: v$$VERSION2"; \
+		git tag v$$VERSION2; \
+		gh release create v$$VERSION2 \
+			--title "v$$VERSION2" \
+			--notes-file docs/releases/notes/$$VERSION2.md \
+			docs/releases/notes/$$VERSION2.md; \
+	}
 
 dryrun:
 	@echo "Generating CHANGELOG.md..."
