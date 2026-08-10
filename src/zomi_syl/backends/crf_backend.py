@@ -223,11 +223,14 @@ from __future__ import annotations
 import importlib.resources
 import json
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 import joblib
 import traceback
-import pycrfsuite  # Add this import
 from zomi_syl.exceptions import ZomiSylError
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 from zomi_syl.core.interfaces import (
     BaseSyllabifier,
@@ -239,6 +242,13 @@ from zomi_syl.core.interfaces import (
 from zomi_syl.utils.features import strip_and_flags, sent2features
 from zomi_syl.utils.model_paths import resolve_model_path
 
+# Graceful import of pycrfsuite
+try:
+    import pycrfsuite
+    PYCRFSUITE_AVAILABLE = True
+except ImportError:
+    PYCRFSUITE_AVAILABLE = False
+    pycrfsuite = None
 
 class CRFBackend(BaseSyllabifier):
     """
@@ -251,8 +261,18 @@ class CRFBackend(BaseSyllabifier):
     backend_name: str = "crf"
     backend_version: str = "1.0.0"
     backend_type: str = "statistical"
+    
+    # Add this class-level constant for easy checking
+    AVAILABLE: bool = PYCRFSUITE_AVAILABLE
 
     def __init__(self, model_dir: str | None = None):
+        # Check if pycrfsuite is available
+        if not PYCRFSUITE_AVAILABLE:
+            raise ZomiSylError(
+                "CRF backend requires 'python-crfsuite' package.\n"
+                "Install it with: pip install python-crfsuite"
+            )
+
         self.backend_name = self.backend_name
         if model_dir is None:
             model_dir = resolve_model_path("crf")
@@ -262,16 +282,20 @@ class CRFBackend(BaseSyllabifier):
         else:
             self.model_dir = self._resolve_model_path()
 
-        # 2. Resolve model path
-        self.model_path = self.model_dir / "crf_syllabifier.crfsuite"
-
-        if not self.model_path.exists():
-            raise FileNotFoundError(f"CRF model not found: {self.model_path}")
+        # 2. Find model file (try multiple extensions)
+        self.model_path = self._find_model_file()
+        
+        if self.model_path is None:
+            raise FileNotFoundError(
+                f"No CRF model found in {self.model_dir}. "
+                f"Available files: {self._list_model_files()}"
+            )
 
         # 3. Load model using pycrfsuite
         try:
             self.model = pycrfsuite.Tagger()
             self.model.open(str(self.model_path))
+            logger.info(f"[CRFBackend] Model loaded successfully from {str(self.model_path)}")
         except Exception as e:
             tb = traceback.format_exc()
             raise ZomiSylError(
@@ -289,7 +313,40 @@ class CRFBackend(BaseSyllabifier):
         self.feature_templates = []
 
     def _resolve_model_path(self):
-        return importlib.resources.files("zomi_syl.models.crf")
+        """Resolve the path to the packaged CRF model."""
+        try:
+            import importlib.resources
+            model_dir = importlib.resources.files("zomi_syl.models.crf")
+            return Path(str(model_dir))
+        except Exception as e:
+            raise ZomiSylError(f"Could not resolve model path: {e}")
+
+    def _find_model_file(self) -> Optional[Path]:
+        """Find the model file, trying multiple possible names/extensions."""
+        possible_names = [
+            "crf_syllabifier.crfsuite",
+            "crf_syllabifier.joblib",
+            "crf_syllabifier.pkl",
+            "model.crfsuite",
+            "model.joblib",
+            "crf_model.crfsuite",
+            "crf_model.joblib",
+        ]
+        
+        for name in possible_names:
+            candidate = self.model_dir / name
+            if candidate.exists() and candidate.is_file():
+                return candidate
+        return None
+
+    def _list_model_files(self) -> List[str]:
+        """List all files in the model directory."""
+        try:
+            if self.model_dir.exists() and self.model_dir.is_dir():
+                return [f.name for f in self.model_dir.iterdir() if f.is_file()]
+            return []
+        except Exception:
+            return []
 
     # --------------------------------------------------------------
     # BIO → syllables (on hyphen-stripped chars)
@@ -319,11 +376,33 @@ class CRFBackend(BaseSyllabifier):
     # Core prediction
     # --------------------------------------------------------------
 
+    def predict_single(self, xseq):
+        """
+        Predict tags for a single feature sequence.
+        
+        Args:
+            xseq: List of feature dictionaries for each position
+            
+        Returns:
+            List of predicted tags (B/I)
+        """
+        if self.model_path is None:
+            raise RuntimeError("Model not trained or loaded")
+        
+        # Use the already loaded tagger
+        return self.model.tag(xseq)
+    
     def predict(self, word: str) -> Prediction:
         """
         Predict syllable boundaries for a single word.
         Hyphens in the input are ignored for feature extraction.
         """
+        if not PYCRFSUITE_AVAILABLE:
+            raise ZomiSylError(
+                "CRF backend requires 'python-crfsuite' package.\n"
+                "Install it with: pip install python-crfsuite"
+            )
+
         # 1. Strip hyphens → chars + flags
         chars, flags = strip_and_flags(word)
 
@@ -331,8 +410,10 @@ class CRFBackend(BaseSyllabifier):
         X = sent2features(chars, flags)
 
         # 3. Predict BIO tags using pycrfsuite
+        # 3. Predict BIO tags using predict_single method
         try:
-            tags = self.model.tag(X)
+            # tags = self.model.tag(X)
+            tags = self.predict_single(X)
         except Exception as e:
             raise ZomiSylError(f"CRF prediction failed: {e}")
 
@@ -347,12 +428,19 @@ class CRFBackend(BaseSyllabifier):
             boundaries.append(Boundary(index=idx, is_boundary=True))
 
         # 6. Confidence scores (pycrfsuite doesn't support marginals directly)
-        # We'll use a simple heuristic or set to 1.0
         conf: List[ConfidenceScore] = []
         for b in boundaries:
-            # You could implement a custom confidence scoring
-            # or use the model's probability if available
-            conf.append(ConfidenceScore(index=b.index, score=0.5))  # placeholder
+            # Try to get actual confidence if available
+            try:
+                # Some pycrfsuite versions support marginals
+                marginals = self.model.marginals(X)
+                if marginals and b.index - 1 < len(marginals):
+                    score = marginals[b.index - 1].get("B", 0.5)
+                else:
+                    score = 0.5
+            except (AttributeError, Exception):
+                score = 0.5
+            conf.append(ConfidenceScore(index=b.index, score=score))
 
         # 7. Unified prediction
         return Prediction(
