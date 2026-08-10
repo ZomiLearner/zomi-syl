@@ -3,11 +3,39 @@
 All notable changes to this project will be documented in this file.
 
 
+## [v0.3.0] - 2026-08-10
+
+### ✨ Features
+
+- loader: add robust backend availability checks and improved model loading logic
+- crf: add graceful pycrfsuite handling, model discovery, and improved prediction flow
+- crf: migrate CRF backend to pycrfsuite and add new model format
+
+### 🐛 Fixes
+
+- features: normalize characters to NFC during feature extraction
+
+### 📝 Documentation
+
+- clarify syllabify() usage by adding .syllables examples
+
+### 🧪 Tests
+
+- crf: update consistency test to use backend-level predict_single()
+
+### 🔧 Chores
+
+- build: update pyproject for CRF backend migration and tooling improvements
+
 ## [v0.2.4] - 2026-08-05
 
 ### 🐛 Fixes
 
 - crf: add robust error handling for CRF model loading
+
+### Other
+
+- release: v0.2.4
 
 ## [v0.2.3] - 2026-08-05
 
