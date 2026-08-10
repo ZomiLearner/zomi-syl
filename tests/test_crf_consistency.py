@@ -77,7 +77,7 @@ def test_crf_accepts_features(crf_model, sample_words):
         chars, flags = strip_and_flags(word)
         feats = sent2features(chars, flags)
 
-        tags = crf_model.model.predict_single(feats)
+        tags = crf_model.predict_single(feats)
 
         assert len(tags) == len(
             chars
