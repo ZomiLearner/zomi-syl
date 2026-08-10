@@ -8,6 +8,17 @@ version = "0.2.4"
 description = "A modular, dialect-aware Zomi syllabification library with rule-based and CRF backends."
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
+dependencies = [
+    "joblib",
+    "numpy>=1.24",
+    "regex>=2023.0",
+    "pydantic>=2.0",
+    "tqdm>=4.66",
+    "rich>=13.0",
+    "click>=8.1",
+    "python-crfsuite>=0.9.7",
+    # Note: FST, LSTM and Torch are optional backends
+]
 
 [project.license]
 text = "MIT"
@@ -34,6 +45,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Text Processing :: Linguistic",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -50,7 +63,6 @@ dependencies = [
     "tqdm>=4.66",
     "rich>=13.0",
     "click>=8.1",
-    "pycrfsuite",
 ]
 
 [project.optional-dependencies]
@@ -68,6 +80,10 @@ train = [
     "datasets>=2.18",
 ]
 
+crf = [
+    "python-crfsuite>=0.9.7"
+]
+
 fst = [
     "openfst-python>=1.8",
 ]
@@ -77,6 +93,7 @@ torch = [
 ]
 
 all = [
+    "python-crfsuite>=0.9.7",
     "openfst-python>=1.8",
     "torch>=2.2",
 ]
@@ -102,6 +119,7 @@ license-files = ["LICENSE"]
     "py.typed",
     "resources/*.json",
     "models/**/*.joblib",
+    "models/**/*.crfsuite",
     "models/**/*.json",
     "models/**/*.txt",
     "config/*.toml",
@@ -115,9 +133,22 @@ license-files = ["LICENSE"]
 line-length = 100
 target-version = "py310"
 
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
 [tool.black]
 line-length = 100
 target-version = ["py310"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "def __repr__", "if __name__ == .__main__.:"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
