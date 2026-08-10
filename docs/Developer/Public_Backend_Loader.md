@@ -122,6 +122,7 @@ For normal syllabification, prefer:
 
 ```python
 zs.syllabify("itna")
+# zs.syllabify("itna").syllables
 ```
 
 ---

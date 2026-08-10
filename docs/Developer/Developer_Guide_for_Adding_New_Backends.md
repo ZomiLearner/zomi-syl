@@ -13,6 +13,7 @@ or used indirectly through:
 
 ```python
 zs.syllabify("itna", model="rule")
+# zs.syllabify("itna", model="rule").syllables
 ```
 
 ---

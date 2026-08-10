@@ -81,7 +81,7 @@ zomi-syl batch words.txt --output out.txt
 ```python
 import zomi_syl as zs
 
-zs.syllabify("itna")
+zs.syllabify("itna") # zs.syllabify("itna").syllables
 zs.analyze("itna")
 ```
 
