@@ -3,6 +3,7 @@
 # scripts/features.py
 # Shared Zomi-aware feature extractor for CRF training + inference
 
+import unicodedata
 from typing import List, Dict, Any, Tuple
 
 # -----------------------------
@@ -50,6 +51,7 @@ def strip_and_flags(word: str) -> Tuple[List[str], List[bool]]:
 
 def char_features(chars: List[str], prev_hyphen_flags: List[bool], i: int) -> Dict[str, Any]:
     ch = chars[i]
+    ch = unicodedata.normalize("NFC", ch)
     features: Dict[str, Any] = {
         "bias": 1.0,
         "char": ch,
