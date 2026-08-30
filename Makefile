@@ -339,6 +339,10 @@ help:
 allhelp: help help-cli list-backends list-models help-devs
 
 
+upload-test: build
+	twine upload --repository testpypi dist/*
+
+
 # Change the version number in toml file and run this
 # git add . && git commit -m "Bump version from v0.1.907 to v0.1.908" && git push && git tag v0.1.908 && git push origin v0.1.908
 
