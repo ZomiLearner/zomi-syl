@@ -54,6 +54,7 @@ temp/
 # ...EXCEPT the packaged inference models inside src/zomi_syl/models/**
 !src/zomi_syl/models/
 !src/zomi_syl/models/**
+!src/zomi_syl/models/**/*.crfsuite
 !src/zomi_syl/models/**/*.joblib
 !src/zomi_syl/models/**/*.json
 !src/zomi_syl/models/**/*.txt
